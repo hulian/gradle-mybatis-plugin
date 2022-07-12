@@ -10,6 +10,25 @@ subprojects {
     //version = '0.0.1-SNAPSHOT'
     version = '0.0.1'
 
+    repositories {
+        mavenLocal()
+        maven {
+            url 'https://maven.aliyun.com/nexus/content/groups/public/'
+        }
+        maven {
+            url 'https://packages.aliyun.com/maven/repository/2244125-release-RT2QW6/'
+            credentials {
+                username = '62b2b96ea908b6a4dba1b210'
+                password = 'U-vZ-QOaUJ39'
+            }
+        }
+        //mavenCentral()
+    }
+
+    dependencies {
+        testImplementation 'org.junit.jupiter:junit-jupiter:5.7.1'
+    }
+
     task javadocJar(type: Jar) {
         archiveClassifier = 'javadoc'
         from javadoc
@@ -74,24 +93,4 @@ subprojects {
     signing {
         sign publishing.publications.mavenJava
     }
-
-    repositories {
-        mavenLocal()
-        maven {
-            url 'https://maven.aliyun.com/nexus/content/groups/public/'
-        }
-        maven {
-            url 'https://packages.aliyun.com/maven/repository/2244125-release-RT2QW6/'
-            credentials {
-                username = '62b2b96ea908b6a4dba1b210'
-                password = 'U-vZ-QOaUJ39'
-            }
-        }
-        //mavenCentral()
-    }
-
-    dependencies {
-        testImplementation 'org.junit.jupiter:junit-jupiter:5.7.1'
-    }
-
 }
