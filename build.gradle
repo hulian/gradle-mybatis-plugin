@@ -1,0 +1,60 @@
+plugins {
+    id 'java-gradle-plugin'
+    id 'maven-publish'
+    id 'java'
+}
+
+group = 'pub.techfun'
+version = '0.0.1'
+
+subprojects {
+
+    apply plugin:'java'
+    apply plugin:'java-gradle-plugin'
+    apply plugin: 'maven-publish'
+
+    group = 'pub.techfun'
+    version = '0.0.1'
+
+    publishing {
+        publications {
+            mavenJava(MavenPublication) {
+                group = group
+
+                artifact jar
+            }
+        }
+    }
+    publishing {
+        repositories {
+            maven {
+                // snapshot 2244125-snapshot-ePFJKJ release
+                url 'https://packages.aliyun.com/maven/repository/2244125-snapshot-ePFJKJ/'
+                credentials {
+                    username = '62b2b96ea908b6a4dba1b210'
+                    password = 'U-vZ-QOaUJ39'
+                }
+            }
+        }
+    }
+
+    repositories {
+        mavenLocal()
+        maven {
+            url 'https://maven.aliyun.com/nexus/content/groups/public/'
+        }
+        maven {
+            url 'https://packages.aliyun.com/maven/repository/2244125-release-RT2QW6/'
+            credentials {
+                username = '62b2b96ea908b6a4dba1b210'
+                password = 'U-vZ-QOaUJ39'
+            }
+        }
+        //mavenCentral()
+    }
+
+    dependencies {
+        testImplementation 'org.junit.jupiter:junit-jupiter:5.7.1'
+    }
+
+}
