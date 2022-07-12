@@ -18,7 +18,7 @@ class CarbonDockerPluginPluginTest {
         // Create a test project and apply the plugin
         Project project = ProjectBuilder.builder().build();
 		project.getPlugins().apply("java");
-        project.getPlugins().apply("carbon.docker.plugin.cmd");
+        project.getPlugins().apply("pub.techfun.docker.plugin.cmd");
 
         // Verify the result
         assertNotNull(project.getTasks().findByName(CreateDockerFolderTask.TASK_NAME));
