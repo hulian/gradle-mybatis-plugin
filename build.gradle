@@ -7,8 +7,8 @@ subprojects {
     apply plugin: 'signing'
 
     group = 'pub.techfun'
-    version = '0.0.1-SNAPSHOT'
-    //version = '0.0.1'
+    //version = '0.0.1-SNAPSHOT'
+    version = '0.0.2'
 
     task javadocJar(type: Jar) {
         archiveClassifier = 'javadoc'
