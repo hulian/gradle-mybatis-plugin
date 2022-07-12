@@ -1,41 +1,75 @@
-plugins {
-    id 'java-gradle-plugin'
-    id 'maven-publish'
-    id 'java'
-}
-
-group = 'pub.techfun'
-version = '0.0.1'
 
 subprojects {
 
     apply plugin:'java'
     apply plugin:'java-gradle-plugin'
     apply plugin: 'maven-publish'
+    apply plugin: 'signing'
 
     group = 'pub.techfun'
     version = '0.0.1'
+
+    task javadocJar(type: Jar) {
+        from javadoc
+    }
+
+    task sourcesJar(type: Jar) {
+        from sourceSets.main.allSource
+    }
 
     publishing {
         publications {
             mavenJava(MavenPublication) {
                 group = group
-
                 artifact jar
-            }
-        }
-    }
-    publishing {
-        repositories {
-            maven {
-                // snapshot 2244125-snapshot-ePFJKJ release
-                url 'https://packages.aliyun.com/maven/repository/2244125-snapshot-ePFJKJ/'
-                credentials {
-                    username = '62b2b96ea908b6a4dba1b210'
-                    password = 'U-vZ-QOaUJ39'
+                artifact javadocJar
+                artifact sourcesJar
+                pom {
+                    name = "gradle-docker-plugin"
+                    description = "Gradle Docker打包插件"
+                    url = "https://github.com/hulian/gradle-docker-plugin"
+                    licenses {
+                        license {
+                            name = "The Apache License, Version 2.0"
+                            url = "http://www.apache.org/licenses/LICENSE-2.0.txt"
+                        }
+                    }
+                    developers {
+                        developer {
+                            id = "hulian"
+                            name = "hulian"
+                            email = "hu_lian_cn@163.com"
+                        }
+                    }
+                    scm {
+                        connection = "scm:git:https://github.com/hulian/gradle-docker-plugin.git"
+                        developerConnection = "scm:git: https://github.com/hulian/gradle-docker-plugin.git"
+                        url = "https://github.com/hulian/gradle-docker-plugin"
+                    }
                 }
             }
         }
+
+        repositories {
+            maven {
+                name = 'sonatype'
+                def releaseUrl='https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/'
+                def snapshotUrl='https://s01.oss.sonatype.org/content/repositories/snapshots/'
+                if(version.endsWith("SNAPSHOT")){
+                    url = snapshotUrl
+                }else{
+                    url = releaseUrl
+                }
+                credentials {
+                    username = 'hu_lian_cn@163.com'
+                    password = 'Uuyy880211@@'
+                }
+            }
+        }
+    }
+
+    signing {
+        sign publishing.publications.mavenJava
     }
 
     repositories {
