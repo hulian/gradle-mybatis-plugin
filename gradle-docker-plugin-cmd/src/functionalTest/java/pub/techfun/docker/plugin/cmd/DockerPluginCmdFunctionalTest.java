@@ -9,14 +9,12 @@ import java.io.Writer;
 import java.io.FileWriter;
 import java.nio.file.Files;
 import org.gradle.testkit.runner.GradleRunner;
-import org.gradle.testkit.runner.BuildResult;
 import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * A simple functional test for the 'carbon.docker.plugin.greeting' plugin.
  */
-class CarbonDockerPluginPluginFunctionalTest {
+class DockerPluginCmdFunctionalTest {
     @Test void canRunTask() throws IOException {
         // Setup the test build
         File projectDir = new File("build/functionalTest");
@@ -24,7 +22,7 @@ class CarbonDockerPluginPluginFunctionalTest {
         writeString(new File(projectDir, "settings.gradle"), "");
         writeString(new File(projectDir, "build.gradle"),
             "plugins {" +
-            "  id('carbon.docker.plugin.cmd')" +
+            "  id('pub.techfun.docker.plugin.cmd')" +
             "}");
 
         // Run the build
