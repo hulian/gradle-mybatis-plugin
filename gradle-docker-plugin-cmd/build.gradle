@@ -1,7 +1,18 @@
+pluginBundle {
+    website = 'https://github.com/hulian/gradle-docker-plugin'
+    vcsUrl = 'https://github.com/hulian/gradle-docker-plugin'
+    description = 'Docker打包部署插件'
+    tags = ['docker', 'ssh', 'deploy']
+    pluginTags = [
+        cmdPlugin: ['docker', 'ssh', 'deploy'],
+    ]
+}
+
 gradlePlugin {
     // Define the plugin
     plugins {
         cmdPlugin {
+            displayName = 'gradle-docker-plugin'
             id = 'pub.techfun.docker.plugin.cmd'
             implementationClass = 'pub.techfun.docker.plugin.cmd.DockerPluginCmd'
         }

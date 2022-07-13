@@ -1,8 +1,12 @@
+plugins{
+    id 'com.gradle.plugin-publish' version '1.0.0' apply false
+}
 
 subprojects {
 
-    apply plugin:'java'
-    apply plugin:'java-gradle-plugin'
+    apply plugin: 'java'
+    apply plugin: 'com.gradle.plugin-publish'
+    apply plugin: 'java-gradle-plugin'
     apply plugin: 'maven-publish'
     apply plugin: 'signing'
 
