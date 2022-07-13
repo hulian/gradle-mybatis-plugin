@@ -20,4 +20,6 @@ attributes 'Class-Path': configurations.runtimeClasspath.files.collect { './libs
 
 #### 使用说明
 
-1.  执行gradle打包命令，如 ./gradlew 模块名:buildImage
+1. 执行gradle打包命令，如 ./gradlew 模块名:buildImage
+2. 如果要发布到远程仓库，在命令行上加入自定义属性 如 ./gradlew 模块名:publishImage -PREGISTRY_HOST=registryhost:port \ 
+不设置属性默认发布到本地仓库
