@@ -7,15 +7,22 @@ complete common tasks like build docker image, push to local or remore registry,
 #### Installation
 
 1. this plugin depends on command in you local host, please install docker and ssh client first!
-2. if you want to deploy image to remote host, please make sure that remote host can be login by ssh without password
+2. if you want to deploy image to remote host, please make sure that remote host can be login from local host by ssh without password
 3. add plugin to build.gradle
+```
+plugins {
+    id "pub.techfun.docker.plugin.cmd" version "0.0.1"
+}
+```
 4. add jar manifest configuration
->jar {
->> manifest {
->>>  attributes 'Main-Class': 'YourMainClass'
->>>  attributes 'Class-Path': configurations.runtimeClasspath.files.collect { './libs/'+it.getName() }.join(' ')
->>}
->}
+```
+jar { 
+ manifest {
+  attributes 'Main-Class': '你的MainClass'
+  attributes 'Class-Path': configurations.runtimeClasspath.files.collect { './libs/'+it.getName() }.join(' ')
+ }
+}
+```
 
 #### Instructions
 
@@ -26,4 +33,4 @@ complete common tasks like build docker image, push to local or remore registry,
 5. deploy to remote host: ./gradlew module:publishImage -PDEPLOY_HOST=deployhost:port
 6. deploy with args: ./gradlew module:publishImage -PARGS="--spring.profiles.active=dev"
 7. the default docker configuration file in gradle-docker-plugin-cmd/src/main/resources/docker,\
-   if you want to override this file,create a folder named docker in your root module, then create Dockerfile and entrypoint.sh file in this folder.
+   if you want to override this file,create a folder named 'docker' in your root path of module, then create Dockerfile and entrypoint.sh file in this folder.
