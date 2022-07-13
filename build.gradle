@@ -7,8 +7,9 @@ subprojects {
     apply plugin: 'signing'
 
     group = 'pub.techfun'
-    //version = '0.0.1-SNAPSHOT'
-    version = '0.0.1'
+    version = '0.0.1-SNAPSHOT'
+    //version = '0.0.1'
+    def isReleaseVersion = !version.endsWith("SNAPSHOT")
 
     repositories {
         mavenLocal()
@@ -43,9 +44,7 @@ subprojects {
         publications {
             mavenJava(MavenPublication) {
                 group = group
-                artifactId project.name
-                version project.version
-                from components.java
+                artifact jar
                 artifact sourcesJar
                 artifact javadocJar
                 pom {
@@ -77,12 +76,10 @@ subprojects {
         repositories {
             maven {
                 name = 'sonatype'
-                def releaseUrl='https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/'
-                def snapshotUrl='https://s01.oss.sonatype.org/content/repositories/snapshots/'
-                if(version.endsWith("SNAPSHOT")){
-                    url = snapshotUrl
+                if(isReleaseVersion){
+                    url = 'https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/'
                 }else{
-                    url = releaseUrl
+                    url = 'https://s01.oss.sonatype.org/content/repositories/snapshots/'
                 }
                 credentials {
                     username = "$sonatypeUsername"
@@ -93,6 +90,7 @@ subprojects {
     }
 
     signing {
+        required { isReleaseVersion && gradle.taskGraph.hasTask("publishMavenJavaPublicationToSonatypeRepository") }
         sign publishing.publications.mavenJava
     }
 }
