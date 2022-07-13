@@ -43,6 +43,8 @@ subprojects {
         publications {
             mavenJava(MavenPublication) {
                 group = group
+                artifactId project.name
+                version project.version
                 from components.java
                 artifact sourcesJar
                 artifact javadocJar
@@ -83,8 +85,8 @@ subprojects {
                     url = releaseUrl
                 }
                 credentials {
-                    username = 'hu_lian_cn@163.com'
-                    password = 'Uuyy880211@@'
+                    username = "$sonatypeUsername"
+                    password = "$sonatypePassword"
                 }
             }
         }
