@@ -7,8 +7,9 @@
 docker-plugin-cmd 直接通过本机上的docker命令行执行docker任务
 
 ###  软件安装
-1. 在build.gradle加入插件
-2. 添加jar manifest配置
+1. 本插件依赖本机命令行环境，先在本机上安装好docker和ssh客户端
+2. 在build.gradle加入插件
+3. 添加jar manifest配置
 ---
 jar { \
 manifest {\
