@@ -23,4 +23,5 @@ complete common tasks like build docker image, push to local or remore registry,
 2. push to local registry: ./gradlew module:pushImage
 3. push to remote registry: ./gradlew module:pushImage -PREGISTRY_HOST=registryhost:port
 4. deploy to local host: ./gradlew module:publishImage
-5. deploy to remote host: ./gradlew module:publishImage -PDEPLOY_HOST=deployhost:port 
+5. deploy to remote host: ./gradlew module:publishImage -PDEPLOY_HOST=deployhost:port
+6. deploy with args: ./gradlew module:publishImage -PARGS="--spring.profiles.active=dev"

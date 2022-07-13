@@ -25,3 +25,4 @@ docker-plugin-cmd 直接通过本机上的docker命令行执行docker任务
 3. 发布到远程仓库，在命令行上加入自定义属性: ./gradlew 模块名:pushImage -PREGISTRY_HOST=registryhost:port
 4. 部署到本机: ./gradlew 模块名:publishImage
 5. 部署到远程机器: ./gradlew 模块名:publishImage -PDEPLOY_HOST=deployhost:port
+6. 部署时添加java命令行参数: ./gradlew 模块名:publishImage -PARGS="--spring.profiles.active=dev"
