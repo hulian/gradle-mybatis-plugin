@@ -2,7 +2,7 @@
 
 #### Description
  This plugin use local machine shell to execute docker command to
- complete common tasks like build docker image, publish to local or remore registry, deploy to local or remote registry
+ complete common tasks like build docker image, push to local or remore registry, deploy to local or remote host
 
 #### Installation
 
