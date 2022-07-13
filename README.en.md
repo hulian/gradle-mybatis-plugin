@@ -32,5 +32,5 @@ jar {
 4. deploy to local host: ./gradlew module:publishImage
 5. deploy to remote host: ./gradlew module:publishImage -PDEPLOY_HOST=deployhost:port
 6. deploy with args: ./gradlew module:publishImage -PARGS="--spring.profiles.active=dev"
-7. the default docker configuration file in gradle-docker-plugin-cmd/src/main/resources/docker,\
-   if you want to override this file,create a folder named 'docker' in your root path of module, then create Dockerfile and entrypoint.sh file in this folder.
+7. the default docker configuration file is in source folder: gradle-docker-plugin-cmd/src/main/resources/docker,\
+   if you want to override this configuration,create a folder named 'docker' in your root path of module, then create Dockerfile and entrypoint.sh file in this folder.
