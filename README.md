@@ -6,7 +6,18 @@
 #### 软件架构
 docker-plugin-cmd 直接通过本机上的docker命令行执行docker任务
 
+###  软件安装
+1. 在build.gradle加入插件
+2. 添加jar manifest配置
+---
+jar { \
+manifest {\
+attributes 'Main-Class': '你的MainClass'\
+attributes 'Class-Path': configurations.runtimeClasspath.files.collect { './libs/'+it.getName() }.join(' ')\
+}\
+}
+---
+
 #### 使用说明
 
-1.  在build.gradle中引入插件
-2.  执行gradle打包命令，如 gradlew project:buildImage
+1.  执行gradle打包命令，如 ./gradlew 模块名:buildImage
