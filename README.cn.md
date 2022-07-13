@@ -26,3 +26,5 @@ docker-plugin-cmd 直接通过本机上的docker命令行执行docker任务
 4. 部署到本机: ./gradlew 模块名:publishImage
 5. 部署到远程机器: ./gradlew 模块名:publishImage -PDEPLOY_HOST=deployhost:port
 6. 部署时添加java命令行参数: ./gradlew 模块名:publishImage -PARGS="--spring.profiles.active=dev"
+7. 默认docker配置文件在 gradle-docker-plugin-cmd/src/main/resources/docker,\
+如果想要覆盖此配置文件，在项目的根目录创建名为docker的文件夹，在文件夹内创建Dockerfile和entrypoint.sh文件
