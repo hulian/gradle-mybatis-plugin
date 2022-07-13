@@ -16,4 +16,3 @@ dist/
 tmp/
 yarn.lock
 package-lock.json
-gradle.properties
