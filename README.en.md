@@ -6,17 +6,18 @@
 
 #### Installation
 
-1. add plugin to build.gradle
-2. add jar manifest configuration
----
-jar { \
-    manifest {\
-    attributes 'Main-Class': 'com.carbon.auth.AuthApplication'\
-    attributes 'Class-Path': configurations.runtimeClasspath.files.collect { './libs/'+it.getName() }.join(' ')\
-    }\
-}
----
+1. this plugin depends on command in you local host, please install docker and ssh client first!
+2. add plugin to build.gradle
+3. add jar manifest configuration
+>jar {
+>> manifest {
+>>>  attributes 'Main-Class': 'YourMainClass'
+>>>  attributes 'Class-Path': configurations.runtimeClasspath.files.collect { './libs/'+it.getName() }.join(' ')
+>>}
+>}
 
 #### Instructions
 
-1.  run gradle cmd  ./gradlew module:buildImage
+1. build image:  ./gradlew module:buildImage
+2. push to local registry: ./gradlew module:pushImage
+3. push to remote registry: ./gradlew module:pushImage -PREGISTRY_HOST=registryhost:port 

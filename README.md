@@ -10,17 +10,15 @@ docker-plugin-cmd 直接通过本机上的docker命令行执行docker任务
 1. 本插件依赖本机命令行环境，先在本机上安装好docker和ssh客户端
 2. 在build.gradle加入插件
 3. 添加jar manifest配置
----
-jar { \
-manifest {\
-attributes 'Main-Class': '你的MainClass'\
-attributes 'Class-Path': configurations.runtimeClasspath.files.collect { './libs/'+it.getName() }.join(' ')\
-}\
-}
----
+>jar { 
+>> manifest {
+>>>  attributes 'Main-Class': '你的MainClass'
+>>>  attributes 'Class-Path': configurations.runtimeClasspath.files.collect { './libs/'+it.getName() }.join(' ')
+>>}
+>}
 
 #### 使用说明
 
-1. 执行gradle打包命令，如 ./gradlew 模块名:buildImage
-2. 如果要发布到远程仓库，在命令行上加入自定义属性 如 ./gradlew 模块名:publishImage -PREGISTRY_HOST=registryhost:port \ 
-不设置属性默认发布到本地仓库
+1. 构建镜像: ./gradlew 模块名:buildImage
+2. 发布到本地仓库: ./gradlew 模块名:pushImage
+3. 发布到远程仓库，在命令行上加入自定义属性: ./gradlew 模块名:pushImage -PREGISTRY_HOST=registryhost:port
