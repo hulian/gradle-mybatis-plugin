@@ -1,24 +1,23 @@
 # gradle-docker-plugin
 
-#### 介绍
- Gradle Docker插件 直接通过Gradle插件进行Docker镜像打包，上传，发布
+#### Description
+This plugin use local machine shell to execute docker command to
+complete common tasks like build docker image, push to local or remore registry, deploy to local or remote host
 
-#### 软件架构
-docker-plugin-cmd 直接通过本机上的docker命令行执行docker任务
+#### Installation
 
-###  软件安装
-1. 本插件依赖本机命令行环境，先在本机上安装好docker和ssh客户端
-2. 在build.gradle加入插件
-3. 添加jar manifest配置
->jar { 
+1. this plugin depends on command in you local host, please install docker and ssh client first!
+2. add plugin to build.gradle
+3. add jar manifest configuration
+>jar {
 >> manifest {
->>>  attributes 'Main-Class': '你的MainClass'
+>>>  attributes 'Main-Class': 'YourMainClass'
 >>>  attributes 'Class-Path': configurations.runtimeClasspath.files.collect { './libs/'+it.getName() }.join(' ')
 >>}
 >}
 
-#### 使用说明
+#### Instructions
 
-1. 构建镜像: ./gradlew 模块名:buildImage
-2. 发布到本地仓库: ./gradlew 模块名:pushImage
-3. 发布到远程仓库，在命令行上加入自定义属性: ./gradlew 模块名:pushImage -PREGISTRY_HOST=registryhost:port
+1. build image:  ./gradlew module:buildImage
+2. push to local registry: ./gradlew module:pushImage
+3. push to remote registry: ./gradlew module:pushImage -PREGISTRY_HOST=registryhost:port 

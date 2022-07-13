@@ -1,7 +1,7 @@
 pluginBundle {
     website = 'https://github.com/hulian/gradle-docker-plugin'
     vcsUrl = 'https://github.com/hulian/gradle-docker-plugin'
-    description = 'Docker打包部署插件'
+    description = 'This plugin use local machine shell to execute docker command to complete common tasks like build docker image, push to local or remore registry, deploy to local or remote host'
     tags = ['docker', 'ssh', 'deploy']
     pluginTags = [
         cmdPlugin: ['docker', 'ssh', 'deploy'],
