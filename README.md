@@ -14,7 +14,7 @@ plugins {
     id "pub.techfun.docker.plugin.cmd" version "0.0.1"
 }
 ```
-4. add jar manifest configuration
+4. add jar manifest configuration to build.gradle
 ```
 jar { 
  manifest {

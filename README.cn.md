@@ -9,13 +9,13 @@ docker-plugin-cmd 直接通过本机上的docker命令行执行docker任务
 ###  软件安装
 1. 本插件依赖本机命令行环境，先在本机上安装好docker和ssh客户端
 2. 如果要通过插件部署项目到远程机，需在远程机配置ssh免密登录
-3. 在build.gradle加入插件
+3. 在build.gradle添加插件
 ```
 plugins {
     id "pub.techfun.docker.plugin.cmd" version "0.0.1"
 }
 ```
-4. 添加jar manifest配置
+4. 在build.gradle添加jar manifest配置
 ```
 jar { 
  manifest {
