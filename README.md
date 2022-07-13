@@ -7,8 +7,9 @@ complete common tasks like build docker image, push to local or remore registry,
 #### Installation
 
 1. this plugin depends on command in you local host, please install docker and ssh client first!
-2. add plugin to build.gradle
-3. add jar manifest configuration
+2. if you want to deploy image to remote host, please make sure that remote host can be login by ssh without password
+3. add plugin to build.gradle
+4. add jar manifest configuration
 >jar {
 >> manifest {
 >>>  attributes 'Main-Class': 'YourMainClass'
@@ -20,4 +21,6 @@ complete common tasks like build docker image, push to local or remore registry,
 
 1. build image:  ./gradlew module:buildImage
 2. push to local registry: ./gradlew module:pushImage
-3. push to remote registry: ./gradlew module:pushImage -PREGISTRY_HOST=registryhost:port 
+3. push to remote registry: ./gradlew module:pushImage -PREGISTRY_HOST=registryhost:port
+4. deploy to local host: ./gradlew module:publishImage
+5. deploy to remote host: ./gradlew module:publishImage -PDEPLOY_HOST=deployhost:port 
