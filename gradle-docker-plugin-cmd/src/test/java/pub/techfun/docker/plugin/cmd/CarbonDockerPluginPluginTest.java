@@ -10,9 +10,6 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-/**
- * A simple unit test for the 'carbon.docker.plugin.greeting' plugin.
- */
 class CarbonDockerPluginPluginTest {
     @Test void pluginRegistersATask() {
         // Create a test project and apply the plugin

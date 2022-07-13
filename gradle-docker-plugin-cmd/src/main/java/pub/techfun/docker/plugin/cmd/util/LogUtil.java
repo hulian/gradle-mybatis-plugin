@@ -7,6 +7,6 @@ import org.gradle.api.logging.Logger;
  */
 public class LogUtil {
 	public static void logLifeCycle(Logger logger, String args){
-		logger.lifecycle("[carbon]{}",args);
+		logger.lifecycle("[gradle-docker-plugin-cmd]{}",args);
 	}
 }

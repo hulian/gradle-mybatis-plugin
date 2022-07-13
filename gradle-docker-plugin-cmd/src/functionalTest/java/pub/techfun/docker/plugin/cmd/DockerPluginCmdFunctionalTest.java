@@ -11,9 +11,6 @@ import java.nio.file.Files;
 import org.gradle.testkit.runner.GradleRunner;
 import org.junit.jupiter.api.Test;
 
-/**
- * A simple functional test for the 'carbon.docker.plugin.greeting' plugin.
- */
 class DockerPluginCmdFunctionalTest {
     @Test void canRunTask() throws IOException {
         // Setup the test build
