@@ -1,0 +1,51 @@
+pluginBundle {
+    website = 'https://github.com/hulian/gradle-docker-plugin'
+    vcsUrl = 'https://github.com/hulian/gradle-docker-plugin'
+    description = 'This plugin use local machine shell to execute docker command to complete common tasks like build docker image, push to local or remore registry, deploy to local or remote host'
+    tags = ['docker', 'ssh', 'deploy']
+    pluginTags = [
+        cmdPlugin: ['docker', 'ssh', 'deploy'],
+    ]
+}
+
+gradlePlugin {
+    // Define the plugin
+    plugins {
+        cmdPlugin {
+            displayName = 'gradle-docker-plugin'
+            id = 'pub.techfun.docker.plugin.java'
+            implementationClass = 'pub.techfun.docker.plugin.java.DockerPluginJava'
+        }
+    }
+}
+
+// Add a source set for the functional test suite
+sourceSets {
+    functionalTest {
+    }
+}
+
+dependencies {
+    implementation group: 'com.github.docker-java', name: 'docker-java-api', version: '3.2.13'
+}
+
+gradlePlugin.testSourceSets(sourceSets.functionalTest)
+configurations.functionalTestImplementation.extendsFrom(configurations.testImplementation)
+
+// Add a task to run the functional tests
+tasks.register('functionalTest', Test) {
+    testClassesDirs = sourceSets.functionalTest.output.classesDirs
+    classpath = sourceSets.functionalTest.runtimeClasspath
+    useJUnitPlatform()
+}
+
+tasks.named('check') {
+    // Run the functional tests as part of `check`
+    dependsOn(tasks.functionalTest)
+}
+
+tasks.named('test') {
+    // Use JUnit Platform for unit tests.
+    useJUnitPlatform()
+}
+
