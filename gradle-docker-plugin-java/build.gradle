@@ -26,7 +26,7 @@ dependencies {
 }
 jar {
     from {configurations.compileClasspath.collect { it.isDirectory() ? it : zipTree(it) }}
-            .include("pub/techfun/**","com/github/docker-java/**","com/jcabi/**","META-INF/**","/docker/**")
+            .include("pub/techfun/**","com/github/docker-java/**","com/jcabi/**","META-INF/MANIFEST.MF","META-INF/gradle-plugins/pub*","/docker/**")
             //.exclude()
             .duplicatesStrategy(DuplicatesStrategy.EXCLUDE)
 }
