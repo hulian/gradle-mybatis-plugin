@@ -19,7 +19,7 @@ class DockerPluginCmdFunctionalTest {
         writeString(new File(projectDir, "settings.gradle"), "");
         writeString(new File(projectDir, "build.gradle"),
             "plugins {" +
-            "  id('pub.techfun.docker.plugin.cmd')" +
+            "  id('pub.techfun.docker.plugin.java')" +
             "}");
 
         // Run the build

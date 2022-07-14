@@ -4,7 +4,7 @@
 package pub.techfun.docker.plugin.java;
 
 import pub.techfun.docker.plugin.java.constants.Constants;
-import pub.techfun.docker.plugin.cmd.task.*;
+import pub.techfun.docker.plugin.java.task.*;
 import org.gradle.api.Plugin;
 import org.gradle.api.Project;
 import pub.techfun.docker.plugin.java.task.*;
