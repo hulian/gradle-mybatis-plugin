@@ -17,6 +17,16 @@ gradlePlugin {
             implementationClass = 'pub.techfun.docker.plugin.java.DockerPluginJava'
         }
     }
+
+}
+
+dependencies {
+    implementation group: 'com.github.docker-java', name: 'docker-java-api', version: '3.2.13'
+    implementation group: 'com.jcabi', name: 'jcabi-ssh', version: '1.7.0'
+}
+jar {
+    from {configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }}
+            .duplicatesStrategy(DuplicatesStrategy.EXCLUDE)
 }
 
 // Add a source set for the functional test suite
@@ -25,10 +35,10 @@ sourceSets {
     }
 }
 
-dependencies {
-    implementation group: 'com.github.docker-java', name: 'docker-java-api', version: '3.2.13'
-    implementation group: 'com.jcabi', name: 'jcabi-ssh', version: '1.7.0'
-}
+//dependencies {
+//    implementation group: 'com.github.docker-java', name: 'docker-java-api', version: '3.2.13'
+//    implementation group: 'com.jcabi', name: 'jcabi-ssh', version: '1.7.0'
+//}
 
 gradlePlugin.testSourceSets(sourceSets.functionalTest)
 configurations.functionalTestImplementation.extendsFrom(configurations.testImplementation)
