@@ -10,7 +10,7 @@ plugins {
     id 'java'
 }
 
-//apply plugin: 'pub.techfun.docker.plugin.java'
+apply plugin: 'pub.techfun.docker.plugin.java'
 
 group 'org.example'
 version '0.0.1'

@@ -25,7 +25,9 @@ dependencies {
     implementation group: 'com.jcabi', name: 'jcabi-ssh', version: '1.7.0'
 }
 jar {
-    from {configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }}
+    from {configurations.compileClasspath.collect { it.isDirectory() ? it : zipTree(it) }}
+            .include("pub/techfun/**","com/github/docker-java/**","com/jcabi/**","META-INF/**","/docker/**")
+            //.exclude()
             .duplicatesStrategy(DuplicatesStrategy.EXCLUDE)
 }
 
