@@ -17,17 +17,17 @@ subprojects {
 
     repositories {
         mavenLocal()
-        maven {
-            url 'https://maven.aliyun.com/nexus/content/groups/public/'
-        }
-        maven {
-            url 'https://packages.aliyun.com/maven/repository/2244125-release-RT2QW6/'
-            credentials {
-                username = '62b2b96ea908b6a4dba1b210'
-                password = 'U-vZ-QOaUJ39'
-            }
-        }
-        //mavenCentral()
+//        maven {
+//            url 'https://maven.aliyun.com/nexus/content/groups/public/'
+//        }
+//        maven {
+//            url 'https://packages.aliyun.com/maven/repository/2244125-release-RT2QW6/'
+//            credentials {
+//                username = '62b2b96ea908b6a4dba1b210'
+//                password = 'U-vZ-QOaUJ39'
+//            }
+//        }
+        mavenCentral()
     }
 
     dependencies {

@@ -31,6 +31,7 @@ public class PublishImageTask extends Exec {
 			String host = PropertyUtil.getDeployHost(getProject());
 			LogUtil.logLifeCycle(super.getLogger(),"发布Docker镜像:"+imageName+" 到:"+host);
 			assert host != null;
+
 			list.addAll(List.of("ssh", host));
 		}else{
 			LogUtil.logLifeCycle(super.getLogger(),"发布Docker镜像:"+imageName);

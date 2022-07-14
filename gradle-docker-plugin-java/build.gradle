@@ -27,6 +27,7 @@ sourceSets {
 
 dependencies {
     implementation group: 'com.github.docker-java', name: 'docker-java-api', version: '3.2.13'
+    implementation group: 'com.jcabi', name: 'jcabi-ssh', version: '1.7.0'
 }
 
 gradlePlugin.testSourceSets(sourceSets.functionalTest)
