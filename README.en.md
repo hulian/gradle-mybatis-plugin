@@ -18,7 +18,7 @@ plugins {
 ```
 jar { 
  manifest {
-  attributes 'Main-Class': '你的MainClass'
+  attributes 'Main-Class': 'YourMainClass'
   attributes 'Class-Path': configurations.runtimeClasspath.files.collect { './libs/'+it.getName() }.join(' ')
  }
 }
