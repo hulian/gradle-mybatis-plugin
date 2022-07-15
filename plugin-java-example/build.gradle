@@ -24,6 +24,13 @@ dependencies {
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
 }
 
+jar {
+    manifest {
+        attributes 'Main-Class': 'pub.techfun.example.Application'
+        attributes 'Class-Path': configurations.runtimeClasspath.files.collect { './libs/'+it.getName() }.join(' ')
+    }
+}
+
 test {
     useJUnitPlatform()
 }

@@ -22,7 +22,7 @@ public class SshShell {
                     result = e.getMessage();
                 }
             }
-            return result;
+            return "console:" + result;
         }catch (Exception e){
             logger.error("java ssh shell error:", e);
             throw new RuntimeException(e);
