@@ -1,10 +1,11 @@
 package pub.techfun.docker.plugin.cmd.task;
 
-import pub.techfun.docker.plugin.cmd.constants.Constants;
-import pub.techfun.docker.plugin.cmd.util.ImageNameUtil;
-import pub.techfun.docker.plugin.cmd.util.LogUtil;
-import pub.techfun.docker.plugin.cmd.util.PropertyUtil;
+
 import org.gradle.api.tasks.Exec;
+import pub.techfun.docker.plugin.common.constants.Constants;
+import pub.techfun.docker.plugin.common.util.ImageNameUtil;
+import pub.techfun.docker.plugin.common.util.LogUtil;
+import pub.techfun.docker.plugin.common.util.PropertyUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,7 +32,7 @@ public class PublishImageTask extends Exec {
 			String host = PropertyUtil.getDeployHost(getProject());
 			LogUtil.logLifeCycle(super.getLogger(),"发布Docker镜像:"+imageName+" 到:"+host);
 			assert host != null;
-			list.addAll(List.of("ssh", host));
+			list.addAll(List.of("ssh", "-y", host));
 		}else{
 			LogUtil.logLifeCycle(super.getLogger(),"发布Docker镜像:"+imageName);
 		}

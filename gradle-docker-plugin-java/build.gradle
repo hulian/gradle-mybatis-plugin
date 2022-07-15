@@ -20,11 +20,19 @@ gradlePlugin {
 
 }
 
+// Add a source set for the functional test suite
+sourceSets {
+    functionalTest {
+    }
+}
+
+
 dependencies {
     implementation project(':gradle-docker-plugin-common')
     implementation group: 'com.github.docker-java', name: 'docker-java-api', version: '3.2.13'
     implementation 'org.apache.sshd:sshd-mina:2.8.0'
 }
+
 jar {
     from {configurations.compileClasspath.collect { it.isDirectory() ? it : zipTree(it) }}
             .include(
@@ -34,17 +42,6 @@ jar {
                 "org/sl4j/**", "org/apache/commons/**","com/fasterxml/**"
             ).duplicatesStrategy(DuplicatesStrategy.EXCLUDE)
 }
-
-// Add a source set for the functional test suite
-sourceSets {
-    functionalTest {
-    }
-}
-
-//dependencies {
-//    implementation group: 'com.github.docker-java', name: 'docker-java-api', version: '3.2.13'
-//    implementation group: 'com.jcabi', name: 'jcabi-ssh', version: '1.7.0'
-//}
 
 gradlePlugin.testSourceSets(sourceSets.functionalTest)
 configurations.functionalTestImplementation.extendsFrom(configurations.testImplementation)
@@ -65,4 +62,14 @@ tasks.named('test') {
     // Use JUnit Platform for unit tests.
     useJUnitPlatform()
 }
+
+task copyToDist {
+    doLast {
+        copy {
+            from 'build/libs'
+            into "../dist"
+        }
+    }
+}
+build.finalizedBy(copyToDist)
 

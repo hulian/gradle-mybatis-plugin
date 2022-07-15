@@ -3,10 +3,13 @@
  */
 package pub.techfun.docker.plugin.cmd;
 
-import pub.techfun.docker.plugin.cmd.constants.Constants;
+
 import pub.techfun.docker.plugin.cmd.task.*;
 import org.gradle.api.Plugin;
 import org.gradle.api.Project;
+import pub.techfun.docker.plugin.common.constants.Constants;
+import pub.techfun.docker.plugin.common.task.*;
+import pub.techfun.docker.plugin.common.util.LogUtil;
 
 /**
  * @author henry
@@ -14,7 +17,7 @@ import org.gradle.api.Project;
 public class DockerPluginCmd implements Plugin<Project> {
     public void apply(Project project) {
         // Register a task
-
+		LogUtil.setPluginName("gradle-docker-plugin-cmd");
 		var createDockerFolder = project.getTasks()
 			.register( CreateDockerFolderTask.TASK_NAME, CreateDockerFolderTask.class)
 			.get();

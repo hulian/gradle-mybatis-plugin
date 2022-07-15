@@ -1,10 +1,10 @@
 package pub.techfun.docker.plugin.cmd.task;
 
-import pub.techfun.docker.plugin.cmd.constants.Constants;
-import pub.techfun.docker.plugin.cmd.util.ImageNameUtil;
-import pub.techfun.docker.plugin.cmd.util.LogUtil;
-import pub.techfun.docker.plugin.cmd.util.PropertyUtil;
 import org.gradle.api.tasks.Exec;
+import pub.techfun.docker.plugin.common.constants.Constants;
+import pub.techfun.docker.plugin.common.util.ImageNameUtil;
+import pub.techfun.docker.plugin.common.util.LogUtil;
+import pub.techfun.docker.plugin.common.util.PropertyUtil;
 
 /**
  * @author henry

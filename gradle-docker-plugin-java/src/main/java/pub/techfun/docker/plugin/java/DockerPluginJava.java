@@ -7,6 +7,7 @@ import org.gradle.api.Plugin;
 import org.gradle.api.Project;
 import pub.techfun.docker.plugin.common.constants.Constants;
 import pub.techfun.docker.plugin.common.task.*;
+import pub.techfun.docker.plugin.common.util.LogUtil;
 import pub.techfun.docker.plugin.java.task.*;
 
 /**
@@ -14,6 +15,7 @@ import pub.techfun.docker.plugin.java.task.*;
  */
 public class DockerPluginJava implements Plugin<Project> {
     public void apply(Project project) {
+		LogUtil.setPluginName("gradle-docker-plugin-java");
         // Register a task
 		var createDockerFolder = project.getTasks()
 			.register( CreateDockerFolderTask.TASK_NAME, CreateDockerFolderTask.class)
