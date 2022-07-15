@@ -30,10 +30,9 @@ dependencies {
 }
 
 jar {
-    from {configurations.compileClasspath.collect { it.isDirectory() ? it : zipTree(it) }}
+    from {configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }}
             .include(
-                    "META-INF/MANIFEST.MF", "META-INF/gradle-plugins/pub*", "/docker/**", "pub/techfun/**",
-                    "com/github/docker-java/**"
+                    "META-INF/MANIFEST.MF", "META-INF/gradle-plugins/pub*", "/docker/**", "pub/techfun/**"
             ).duplicatesStrategy(DuplicatesStrategy.EXCLUDE)
 }
 
