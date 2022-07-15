@@ -14,7 +14,7 @@ gradle-docker-plugin-java   使用纯java客户端执行docker任务 开发中..
 3. 在build.gradle添加插件
 ```
 plugins {
-    id "pub.techfun.docker.plugin.cmd" version "0.0.1"
+    id "pub.techfun.docker.plugin.cmd" version "0.0.2"
 }
 ```
 4. 在build.gradle添加jar manifest配置
