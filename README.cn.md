@@ -9,6 +9,7 @@
 3. gradle-docker-plugin-java   使用纯java客户端执行docker任务 开发中...
 4. plugin-cmd-example          使用样例
 5. plugin-java-example         使用样例
+6. dist                        插件jar包
 
 ###  软件安装
 1. gradle-docker-plugin-cmd插件依赖本机命令行环境，先在本机上安装好docker和ssh客户端
