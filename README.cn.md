@@ -7,6 +7,8 @@
 1. gradle-docker-plugin-common 公共代码模块
 2. gradle-docker-plugin-cmd    直接通过本机上的命令行环境执行docker任务
 3. gradle-docker-plugin-java   使用纯java客户端执行docker任务 开发中...
+4. plugin-cmd-example          使用样例
+5. plugin-java-example         使用样例
 
 ###  软件安装
 1. gradle-docker-plugin-cmd插件依赖本机命令行环境，先在本机上安装好docker和ssh客户端
