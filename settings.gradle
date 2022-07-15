@@ -1,6 +1,9 @@
 rootProject.name = 'gradle-docker-plugin'
-include('gradle-docker-plugin-cmd')
-include('gradle-docker-plugin-java')
-include 'plugin-java-example'
+
 include 'gradle-docker-plugin-common'
+include 'gradle-docker-plugin-cmd'
+include 'gradle-docker-plugin-java'
+
+include 'plugin-java-example'
+include 'plugin-cmd-example'
 

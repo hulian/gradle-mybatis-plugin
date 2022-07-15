@@ -25,6 +25,18 @@ sourceSets {
     }
 }
 
+dependencies {
+    implementation project(':gradle-docker-plugin-common')
+}
+
+jar {
+    from {configurations.compileClasspath.collect { it.isDirectory() ? it : zipTree(it) }}
+            .include(
+                    "META-INF/MANIFEST.MF", "META-INF/gradle-plugins/pub*", "/docker/**", "pub/techfun/**",
+                    "com/github/docker-java/**"
+            ).duplicatesStrategy(DuplicatesStrategy.EXCLUDE)
+}
+
 gradlePlugin.testSourceSets(sourceSets.functionalTest)
 configurations.functionalTestImplementation.extendsFrom(configurations.testImplementation)
 

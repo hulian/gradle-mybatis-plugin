@@ -12,7 +12,6 @@ upload/
 docker/dist/
 bin/
 node_modules/
-dist/
 tmp/
 yarn.lock
 package-lock.json
