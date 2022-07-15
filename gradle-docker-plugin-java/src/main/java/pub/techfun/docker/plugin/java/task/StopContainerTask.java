@@ -1,5 +1,6 @@
 package pub.techfun.docker.plugin.java.task;
 
+import pub.techfun.docker.plugin.java.ssh.SshShell;
 import pub.techfun.docker.plugin.java.util.LogUtil;
 import pub.techfun.docker.plugin.java.util.PropertyUtil;
 import pub.techfun.docker.plugin.java.constants.Constants;
@@ -25,18 +26,17 @@ public class StopContainerTask extends Exec {
 	@Override
 	protected void exec() {
 		String containerName = getProject().getName();
-		var list = new ArrayList<String>();
-		if(PropertyUtil.hasDeployHost(getProject())) {
+		var list = new ArrayList<>(List.of("docker", "stop", containerName));
+		LogUtil.logLifeCycle(super.getLogger(),"停止容器,命令行:"+ list);
+		if (PropertyUtil.hasDeployHost(getProject())) {
 			String host = PropertyUtil.getDeployHost(getProject());
 			LogUtil.logLifeCycle(super.getLogger(),"停止容器:"+containerName+" 在:"+host);
-			assert host != null;
-			list.addAll(List.of("ssh", host));
-		}else{
+			var stdout = SshShell.executeCommand(getLogger(), host, list);
+			LogUtil.logLifeCycle(super.getLogger(), stdout);
+		}else {
 			LogUtil.logLifeCycle(super.getLogger(),"停止容器:"+containerName);
+			commandLine(list);
+			super.exec();
 		}
-		list.addAll(List.of("docker", "stop", containerName));
-		LogUtil.logLifeCycle(super.getLogger(),"停止容器,命令行:"+ list);
-		commandLine(list);
-		super.exec();
 	}
 }
