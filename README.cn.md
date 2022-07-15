@@ -4,7 +4,9 @@
  Gradle Docker插件 直接通过Gradle插件进行Docker镜像打包，上传，发布
 
 #### 软件架构
-docker-plugin-cmd 直接通过本机上的docker命令行执行docker任务
+gradle-docker-plugin-common 公共代码模块
+gradle-docker-plugin-cmd    直接通过本机上的命令行环境执行docker任务
+gradle-docker-plugin-java   使用纯java客户端执行docker任务
 
 ###  软件安装
 1. 本插件依赖本机命令行环境，先在本机上安装好docker和ssh客户端
