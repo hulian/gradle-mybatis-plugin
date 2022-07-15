@@ -1,8 +1,8 @@
-package pub.techfun.docker.plugin.java.task;
+package pub.techfun.docker.plugin.common.task;
 
-import pub.techfun.docker.plugin.java.constants.Constants;
-import pub.techfun.docker.plugin.java.util.LogUtil;
 import org.gradle.api.tasks.Exec;
+import pub.techfun.docker.plugin.common.constants.Constants;
+import pub.techfun.docker.plugin.common.util.LogUtil;
 
 /**
  * @author henry

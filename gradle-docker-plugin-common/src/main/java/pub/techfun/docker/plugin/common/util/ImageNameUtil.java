@@ -1,4 +1,4 @@
-package pub.techfun.docker.plugin.java.util;
+package pub.techfun.docker.plugin.common.util;
 
 import org.gradle.api.Project;
 

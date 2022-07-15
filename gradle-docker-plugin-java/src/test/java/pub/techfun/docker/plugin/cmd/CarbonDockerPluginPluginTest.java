@@ -3,10 +3,10 @@
  */
 package pub.techfun.docker.plugin.cmd;
 
-import pub.techfun.docker.plugin.java.task.CreateDockerFolderTask;
 import org.gradle.testfixtures.ProjectBuilder;
 import org.gradle.api.Project;
 import org.junit.jupiter.api.Test;
+import pub.techfun.docker.plugin.common.task.CreateDockerFolderTask;
 
 import static org.junit.jupiter.api.Assertions.*;
 

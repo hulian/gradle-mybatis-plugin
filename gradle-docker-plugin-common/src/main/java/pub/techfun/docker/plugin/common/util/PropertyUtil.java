@@ -1,7 +1,8 @@
-package pub.techfun.docker.plugin.java.util;
+package pub.techfun.docker.plugin.common.util;
 
-import pub.techfun.docker.plugin.java.constants.Constants;
 import org.gradle.api.Project;
+import pub.techfun.docker.plugin.common.constants.Constants;
+
 
 /**
  * @author henry

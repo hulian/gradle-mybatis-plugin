@@ -1,10 +1,10 @@
-package pub.techfun.docker.plugin.java.task;
+package pub.techfun.docker.plugin.common.task;
 
-import pub.techfun.docker.plugin.java.constants.Constants;
-import pub.techfun.docker.plugin.java.util.FileResourcesUtils;
-import pub.techfun.docker.plugin.java.util.LogUtil;
 import org.gradle.api.DefaultTask;
 import org.gradle.api.tasks.TaskAction;
+import pub.techfun.docker.plugin.common.constants.Constants;
+import pub.techfun.docker.plugin.common.util.FileResourcesUtils;
+import pub.techfun.docker.plugin.common.util.LogUtil;
 
 import java.nio.file.Files;
 import java.nio.file.Paths;

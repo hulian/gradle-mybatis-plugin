@@ -1,4 +1,4 @@
-package pub.techfun.docker.plugin.java.constants;
+package pub.techfun.docker.plugin.common.constants;
 
 /**
  * @author henry

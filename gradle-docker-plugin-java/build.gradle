@@ -21,6 +21,7 @@ gradlePlugin {
 }
 
 dependencies {
+    implementation project(':gradle-docker-plugin-common')
     implementation group: 'com.github.docker-java', name: 'docker-java-api', version: '3.2.13'
     implementation 'org.apache.sshd:sshd-mina:2.8.0'
 }

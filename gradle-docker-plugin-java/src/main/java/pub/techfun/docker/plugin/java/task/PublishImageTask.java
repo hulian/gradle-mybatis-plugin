@@ -1,11 +1,11 @@
 package pub.techfun.docker.plugin.java.task;
 
 import org.gradle.api.tasks.Exec;
-import pub.techfun.docker.plugin.java.constants.Constants;
+import pub.techfun.docker.plugin.common.constants.Constants;
+import pub.techfun.docker.plugin.common.util.ImageNameUtil;
+import pub.techfun.docker.plugin.common.util.LogUtil;
+import pub.techfun.docker.plugin.common.util.PropertyUtil;
 import pub.techfun.docker.plugin.java.ssh.SshShell;
-import pub.techfun.docker.plugin.java.util.ImageNameUtil;
-import pub.techfun.docker.plugin.java.util.LogUtil;
-import pub.techfun.docker.plugin.java.util.PropertyUtil;
 
 import java.util.ArrayList;
 import java.util.List;
