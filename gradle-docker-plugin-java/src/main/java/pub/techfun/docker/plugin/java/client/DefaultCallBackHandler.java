@@ -25,7 +25,7 @@ public class DefaultCallBackHandler<T extends ResponseItem> implements ResultCal
 
     @Override
     public void onStart(Closeable closeable) {
-        LogUtil.logLifeCycle(logger, "build start");
+        LogUtil.logLifeCycle(logger, "command start");
     }
 
 
@@ -42,13 +42,13 @@ public class DefaultCallBackHandler<T extends ResponseItem> implements ResultCal
 
     @Override
     public void onComplete() {
-        LogUtil.logLifeCycle(logger, "build complete");
+        LogUtil.logLifeCycle(logger, "command complete");
         latch.countDown();
     }
 
     @Override
     public void close() throws IOException {
-        LogUtil.logLifeCycle(logger, "build close");
+        LogUtil.logLifeCycle(logger, "command close");
         latch.countDown();
     }
 }
