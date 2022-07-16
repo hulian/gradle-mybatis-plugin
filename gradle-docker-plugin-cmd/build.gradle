@@ -26,13 +26,15 @@ sourceSets {
 }
 
 dependencies {
-    implementation project(':gradle-docker-plugin-common')
+    compileOnly project(':gradle-docker-plugin-common')
+    testImplementation project(':gradle-docker-plugin-common')
 }
 
 jar {
-    from {configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }}
+    from {configurations.testRuntimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }}
             .include(
-                    "META-INF/MANIFEST.MF", "META-INF/gradle-plugins/pub*", "/docker/**", "pub/techfun/**"
+                    "META-INF/MANIFEST.MF", "META-INF/gradle-plugins/pub*",
+                    "/docker/**", "pub/techfun/**"
             ).duplicatesStrategy(DuplicatesStrategy.EXCLUDE)
 }
 
