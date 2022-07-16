@@ -5,9 +5,7 @@ import com.github.dockerjava.api.async.ResultCallback;
 import com.github.dockerjava.api.exception.ConflictException;
 import com.github.dockerjava.api.exception.NotFoundException;
 import com.github.dockerjava.api.exception.NotModifiedException;
-import com.github.dockerjava.api.model.BuildResponseItem;
-import com.github.dockerjava.api.model.HostConfig;
-import com.github.dockerjava.api.model.PushResponseItem;
+import com.github.dockerjava.api.model.*;
 import com.github.dockerjava.core.DefaultDockerClientConfig;
 import com.github.dockerjava.core.DockerClientConfig;
 import com.github.dockerjava.core.DockerClientImpl;
@@ -87,10 +85,13 @@ public class DockerCmdClient {
         try {
             var response = client.createContainerCmd(imageName)
                     .withName(containerName)
-                    .withCmd(cmd)
-                    .withHostConfig(HostConfig.newHostConfig().withNetworkMode("host"))
+                    .withHostConfig(
+                            HostConfig.newHostConfig().withNetworkMode("host")
+                                    .withRestartPolicy(RestartPolicy.alwaysRestart())
+                    )
                     .exec();
             LogUtil.logLifeCycle(logger, "发布容器返回:" + response.getRawValues());
+            client.startContainerCmd(containerName).exec();
         } catch (NotFoundException e) {
             LogUtil.logLifeCycle(logger, "镜像不存在:" + imageName);
         } catch (ConflictException e) {
