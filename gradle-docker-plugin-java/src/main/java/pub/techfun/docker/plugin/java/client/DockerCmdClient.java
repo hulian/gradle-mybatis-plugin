@@ -6,6 +6,7 @@ import com.github.dockerjava.api.exception.ConflictException;
 import com.github.dockerjava.api.exception.NotFoundException;
 import com.github.dockerjava.api.exception.NotModifiedException;
 import com.github.dockerjava.api.model.BuildResponseItem;
+import com.github.dockerjava.api.model.HostConfig;
 import com.github.dockerjava.api.model.PushResponseItem;
 import com.github.dockerjava.core.DefaultDockerClientConfig;
 import com.github.dockerjava.core.DockerClientConfig;
@@ -18,6 +19,7 @@ import pub.techfun.docker.plugin.common.util.LogUtil;
 import java.io.File;
 import java.time.Duration;
 import java.util.List;
+import java.util.Set;
 import java.util.concurrent.CountDownLatch;
 
 /**
@@ -28,13 +30,15 @@ public class DockerCmdClient {
     private static DockerClient client;
 
 
-    public static void buildImage(Logger logger, File folder){
+    public static void buildImage(Logger logger, File folder, Set<String> tags){
         DockerClient client = getClient();
         CountDownLatch latch = new CountDownLatch(1);
         ResultCallback<BuildResponseItem> handler = new DefaultCallBackHandler<>(
                 logger, latch
         );
-        client.buildImageCmd(folder).exec(handler);
+        client.buildImageCmd(folder)
+                .withTags(tags)
+                .exec(handler);
         try {
             latch.await();
         } catch (InterruptedException e) {
@@ -81,12 +85,14 @@ public class DockerCmdClient {
     ){
         DockerClient client = getClient();
         try {
-            client.createContainerCmd(imageName)
-                    .withAliases(containerName)
+            var response = client.createContainerCmd(imageName)
+                    .withName(containerName)
                     .withCmd(cmd)
+                    .withHostConfig(HostConfig.newHostConfig().withNetworkMode("host"))
                     .exec();
+            LogUtil.logLifeCycle(logger, "发布容器返回:" + response.getRawValues());
         } catch (NotFoundException e) {
-            LogUtil.logLifeCycle(logger, "容器不存在:" + containerName);
+            LogUtil.logLifeCycle(logger, "镜像不存在:" + imageName);
         } catch (ConflictException e) {
             LogUtil.logLifeCycle(logger, "容器已存在:" + containerName);
         }

@@ -7,9 +7,11 @@ import pub.techfun.docker.plugin.common.task.CopyDockerFileTask;
 import pub.techfun.docker.plugin.common.task.CopyJarTask;
 import pub.techfun.docker.plugin.common.task.CreateDockerFileTask;
 import pub.techfun.docker.plugin.common.task.GetGitVersionTask;
+import pub.techfun.docker.plugin.common.util.ImageNameUtil;
 import pub.techfun.docker.plugin.java.client.DockerCmdClient;
 
 import java.io.File;
+import java.util.Set;
 
 /**
  * @author henry
@@ -28,7 +30,8 @@ public class BuildImageTask extends DefaultTask {
 
 	@TaskAction
 	protected void exec() {
+		String imageName = ImageNameUtil.getImageName(getProject());
 		File file = new File(super.getProject().getBuildDir().getPath() + Constants.DOCKER_FOLDER);
-		DockerCmdClient.buildImage(getLogger(), file);
+		DockerCmdClient.buildImage(getLogger(), file, Set.of(imageName));
 	}
 }
