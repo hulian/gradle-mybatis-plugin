@@ -29,10 +29,12 @@ sourceSets {
 
 dependencies {
     compileOnly project(':gradle-docker-plugin-common')
-    compileOnly group: 'com.github.docker-java', name: 'docker-java-api', version: '3.2.13'
+    compileOnly group: 'com.github.docker-java', name: 'docker-java-core', version: '3.2.13'
+    compileOnly group: 'com.github.docker-java', name: 'docker-java-transport-httpclient5', version: '3.2.13'
     compileOnly 'org.apache.sshd:sshd-mina:2.8.0'
     testImplementation project(':gradle-docker-plugin-common')
-    testImplementation group: 'com.github.docker-java', name: 'docker-java-api', version: '3.2.13'
+    testImplementation group: 'com.github.docker-java', name: 'docker-java-core', version: '3.2.13'
+    testImplementation group: 'com.github.docker-java', name: 'docker-java-transport-httpclient5', version: '3.2.13'
     testImplementation 'org.apache.sshd:sshd-mina:2.8.0'
 }
 
@@ -40,8 +42,10 @@ jar {
     from {configurations.testRuntimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }}
             .include(
                 "META-INF/MANIFEST.MF", "META-INF/gradle-plugins/pub*", "/docker/**", "pub/techfun/**",
-                "com/github/docker-java/**",
-                "org/apache/sshd/**",
+                "org/apache/sshd/**","org/apache/mina/**",
+                "com/github/dockerjava/**","org/apache/httpcomponents/**","net/java/**","com/google/common/**",
+                "org/apache/hc/**","com/sun/jna/**",
+                "commons-codec/**","commons-io/**","org.bouncycastle/**",
                 "org/sl4j/**", "org/apache/commons/**","com/fasterxml/**"
             ).duplicatesStrategy(DuplicatesStrategy.EXCLUDE)
 }
