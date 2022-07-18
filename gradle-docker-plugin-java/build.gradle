@@ -32,10 +32,12 @@ dependencies {
     compileOnly group: 'com.github.docker-java', name: 'docker-java-core', version: '3.2.13'
     compileOnly group: 'com.github.docker-java', name: 'docker-java-transport-httpclient5', version: '3.2.13'
     compileOnly 'org.apache.sshd:sshd-mina:2.8.0'
+    compileOnly 'org.eclipse.jgit:org.eclipse.jgit:5.13.1.202206130422-r'
     testImplementation project(':gradle-docker-plugin-common')
     testImplementation group: 'com.github.docker-java', name: 'docker-java-core', version: '3.2.13'
     testImplementation group: 'com.github.docker-java', name: 'docker-java-transport-httpclient5', version: '3.2.13'
     testImplementation 'org.apache.sshd:sshd-mina:2.8.0'
+    testImplementation 'org.eclipse.jgit:org.eclipse.jgit:5.13.1.202206130422-r'
 }
 
 jar {
@@ -45,6 +47,7 @@ jar {
                 "org/apache/sshd/**","org/apache/mina/**",
                 "com/github/dockerjava/**","org/apache/httpcomponents/**","net/java/**","com/google/common/**",
                 "org/apache/hc/**","com/sun/jna/**",
+                "org/eclipse/**",
                 "commons-codec/**","commons-io/**","org.bouncycastle/**",
                 "org/sl4j/**", "org/apache/commons/**","com/fasterxml/**"
             ).duplicatesStrategy(DuplicatesStrategy.EXCLUDE)

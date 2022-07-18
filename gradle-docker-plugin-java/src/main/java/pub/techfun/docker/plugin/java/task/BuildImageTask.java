@@ -6,7 +6,6 @@ import pub.techfun.docker.plugin.common.constants.Constants;
 import pub.techfun.docker.plugin.common.task.CopyDockerFileTask;
 import pub.techfun.docker.plugin.common.task.CopyJarTask;
 import pub.techfun.docker.plugin.common.task.CreateDockerFileTask;
-import pub.techfun.docker.plugin.common.task.GetGitVersionTask;
 import pub.techfun.docker.plugin.common.util.ImageNameUtil;
 import pub.techfun.docker.plugin.java.client.DockerCmdClient;
 

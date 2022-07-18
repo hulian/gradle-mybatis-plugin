@@ -1,7 +1,8 @@
-package pub.techfun.docker.plugin.common.task;
+package pub.techfun.docker.plugin.cmd.task;
 
 import org.gradle.api.tasks.Exec;
 import pub.techfun.docker.plugin.common.constants.Constants;
+import pub.techfun.docker.plugin.common.task.CopyJarTask;
 import pub.techfun.docker.plugin.common.util.LogUtil;
 
 /**
