@@ -27,11 +27,11 @@ public class GetGitVersionTask extends DefaultTask {
 	@TaskAction
 	protected void exec() {
 		try {
-			String fitFile = getProject().getBuildDir().getPath() + Constants.DOCKER_FOLDER + "/GitVersion";
+			String gitFile = getProject().getBuildDir().getPath() + Constants.DOCKER_FOLDER + "/GitVersion";
 			Git git = Git.open(getProject().getRootDir());
 			String desc = git.describe().setAlways(true).call();
 			LogUtil.logLifeCycle(super.getLogger(),"输出Git版本号:" + desc);
-			Files.writeString(Path.of(fitFile), desc);
+			Files.writeString(Path.of(gitFile), desc);
 		} catch (IOException e) {
 			throw new RuntimeException(e);
 		} catch (GitAPIException e) {
