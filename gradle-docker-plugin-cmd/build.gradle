@@ -41,8 +41,8 @@ jar {
 gradlePlugin.testSourceSets(sourceSets.functionalTest)
 configurations.functionalTestImplementation.extendsFrom(configurations.testImplementation)
 
-build.dependsOn(project(':gradle-docker-plugin-common').getTasks().getByName("build"))
-
+//common模块不在运行时依赖里，不会自动编译
+compileJava.dependsOn(project(':gradle-docker-plugin-common').getTasks().getByName("build"))
 
 // Add a task to run the functional tests
 tasks.register('functionalTest', Test) {
