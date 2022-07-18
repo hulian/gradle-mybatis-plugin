@@ -56,6 +56,8 @@ jar {
 gradlePlugin.testSourceSets(sourceSets.functionalTest)
 configurations.functionalTestImplementation.extendsFrom(configurations.testImplementation)
 
+build.dependsOn(project(':gradle-docker-plugin-common').getTasks().getByName("build"))
+
 // Add a task to run the functional tests
 tasks.register('functionalTest', Test) {
     testClassesDirs = sourceSets.functionalTest.output.classesDirs
@@ -82,4 +84,5 @@ task copyToDist {
     }
 }
 build.finalizedBy(copyToDist)
+
 
