@@ -12,11 +12,11 @@ complete common tasks like build docker image, push to local or remore registry,
 ```
 //use cmd version
 plugins {
-    id "pub.techfun.docker.plugin.cmd" version "0.0.7"
+    id "pub.techfun.docker.plugin.cmd" version "0.0.8"
 }
 // use java version
 plugins {
-    id "pub.techfun.docker.plugin.java" version "0.0.7"
+    id "pub.techfun.docker.plugin.java" version "0.0.8"
 }
 ```
 4. add jar manifest configuration to build.gradle

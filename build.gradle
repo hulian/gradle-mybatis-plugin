@@ -12,7 +12,7 @@ subprojects {
 
     group = 'pub.techfun'
     //version = '0.0.5-SNAPSHOT'
-    version = '0.0.7'
+    version = '0.0.8'
     def isReleaseVersion = !version.endsWith("SNAPSHOT")
 
     repositories {
