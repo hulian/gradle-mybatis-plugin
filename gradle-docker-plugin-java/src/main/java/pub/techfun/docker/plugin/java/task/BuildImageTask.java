@@ -29,7 +29,7 @@ public class BuildImageTask extends DefaultTask {
 
 	@TaskAction
 	protected void exec() {
-		String imageName = ImageNameUtil.getImageName(getProject());
+		String imageName = ImageNameUtil.getImageName(getProject(), GetGitVersionTask.getGitVersion());
 		File file = new File(super.getProject().getBuildDir().getPath() + Constants.DOCKER_FOLDER);
 		DockerCmdClient.buildImage(getLogger(), file, Set.of(imageName));
 	}

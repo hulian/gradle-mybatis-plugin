@@ -23,7 +23,7 @@ public class PushImageTask extends DefaultTask {
 	@TaskAction
 	protected void exec() {
 		if(PropertyUtil.hasRegistryHost(getProject())) {
-			String imageName = ImageNameUtil.getImageName(getProject());
+			String imageName = ImageNameUtil.getImageName(getProject(), GetGitVersionTask.getGitVersion());
 			LogUtil.logLifeCycle(super.getLogger(),"推送Docker镜像:"+imageName);
 			DockerCmdClient.pushImage(getLogger(), imageName);
 		}else{

@@ -9,8 +9,6 @@ import pub.techfun.docker.plugin.common.task.CopyJarTask;
 import pub.techfun.docker.plugin.common.util.LogUtil;
 
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
 
 /**
  * @author henry
@@ -18,6 +16,7 @@ import java.nio.file.Path;
 public class GetGitVersionTask extends DefaultTask {
 
 	public static final String TASK_NAME = "getGitVersion";
+	private static String gitVersion = "";
 
 	public GetGitVersionTask(){
 		dependsOn(getProject().getTasks().getByName(CopyJarTask.TASK_NAME));
@@ -27,13 +26,14 @@ public class GetGitVersionTask extends DefaultTask {
 	@TaskAction
 	protected void exec() {
 		try (Git git = Git.open(getProject().getRootDir())){
-			String gitFile = getProject().getBuildDir().getPath() + Constants.DOCKER_FOLDER + "/GitVersion";
-			String desc = git.describe().setAlways(true).call();
-			LogUtil.logLifeCycle(super.getLogger(),"输出Git版本号:" + desc);
-			Files.writeString(Path.of(gitFile), desc);
+			gitVersion = git.describe().setAlways(true).call();
+			LogUtil.logLifeCycle(super.getLogger(),"输出Git版本号:" + gitVersion);
 		} catch (IOException | GitAPIException e) {
 			throw new RuntimeException(e);
 		}
+	}
 
+	public static String getGitVersion() {
+		return gitVersion;
 	}
 }

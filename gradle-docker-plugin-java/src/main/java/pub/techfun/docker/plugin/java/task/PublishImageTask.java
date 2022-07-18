@@ -1,7 +1,6 @@
 package pub.techfun.docker.plugin.java.task;
 
 import org.gradle.api.DefaultTask;
-import org.gradle.api.tasks.Exec;
 import org.gradle.api.tasks.TaskAction;
 import pub.techfun.docker.plugin.common.constants.Constants;
 import pub.techfun.docker.plugin.common.util.ImageNameUtil;
@@ -28,7 +27,7 @@ public class PublishImageTask extends DefaultTask {
 
 	@TaskAction
 	protected void exec() {
-		String imageName = ImageNameUtil.getImageName(getProject());
+		String imageName = ImageNameUtil.getImageName(getProject(), GetGitVersionTask.getGitVersion());
 		var list = new ArrayList<>(List.of(
 				"docker", "run",
 				"--name", getProject().getName(),
