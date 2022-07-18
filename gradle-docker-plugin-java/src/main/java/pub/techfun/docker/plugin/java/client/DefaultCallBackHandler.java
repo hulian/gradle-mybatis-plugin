@@ -1,13 +1,11 @@
 package pub.techfun.docker.plugin.java.client;
 
 import com.github.dockerjava.api.async.ResultCallback;
-import com.github.dockerjava.api.model.BuildResponseItem;
 import com.github.dockerjava.api.model.ResponseItem;
 import org.gradle.api.logging.Logger;
 import pub.techfun.docker.plugin.common.util.LogUtil;
 
 import java.io.Closeable;
-import java.io.IOException;
 import java.util.concurrent.CountDownLatch;
 
 /**
@@ -15,8 +13,8 @@ import java.util.concurrent.CountDownLatch;
  */
 public class DefaultCallBackHandler<T extends ResponseItem> implements ResultCallback<T> {
 
-    private Logger logger;
-    private CountDownLatch latch;
+    private final Logger logger;
+    private final CountDownLatch latch;
 
     public DefaultCallBackHandler(Logger logger, CountDownLatch latch){
         this.logger = logger;
@@ -47,7 +45,7 @@ public class DefaultCallBackHandler<T extends ResponseItem> implements ResultCal
     }
 
     @Override
-    public void close() throws IOException {
+    public void close() {
         LogUtil.logLifeCycle(logger, "command close");
         latch.countDown();
     }
