@@ -2,7 +2,7 @@ buildscript {
     repositories { flatDir { name 'localRepository'} }
     repositories { localRepository { dirs '../dist'} }
     dependencies {
-        classpath group: 'pub.techfun', name: 'gradle-docker-plugin-java', version: '0.0.7'
+        classpath group: 'pub.techfun', name: 'gradle-docker-plugin-java', version: '0.0.9'
     }
 }
 
@@ -22,6 +22,12 @@ repositories {
 dependencies {
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
+}
+
+dockerPlugin {
+    docker  {
+        url = 'tcp://localhost:2735'
+    }
 }
 
 jar {

@@ -2,6 +2,10 @@ plugins{
     id 'com.gradle.plugin-publish' version '1.0.0' apply false
 }
 
+ext {
+    set('lombokVersion', '1.18.18')
+}
+
 subprojects {
 
     apply plugin: 'java'
@@ -12,7 +16,7 @@ subprojects {
 
     group = 'pub.techfun'
     //version = '0.0.5-SNAPSHOT'
-    version = '0.0.8'
+    version = '0.0.9'
     def isReleaseVersion = !version.endsWith("SNAPSHOT")
 
     repositories {
@@ -31,6 +35,10 @@ subprojects {
     }
 
     dependencies {
+        compileOnly "org.projectlombok:lombok:${lombokVersion}"
+        annotationProcessor "org.projectlombok:lombok:${lombokVersion}"
+        testCompileOnly "org.projectlombok:lombok:${lombokVersion}"
+        testAnnotationProcessor "org.projectlombok:lombok:${lombokVersion}"
         testImplementation 'org.junit.jupiter:junit-jupiter:5.7.1'
     }
 
