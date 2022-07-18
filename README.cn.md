@@ -18,12 +18,12 @@
 ```
 //使用cmd版
 plugins {
-    id "pub.techfun.docker.plugin.cmd" version "0.0.5"
+    id "pub.techfun.docker.plugin.cmd" version "0.0.7"
 }
 
 //使用java版
 plugins {
-    id "pub.techfun.docker.plugin.cmd" version "0.0.5"
+    id "pub.techfun.docker.plugin.cmd" version "0.0.7"
 }
 ```
 4. 在build.gradle添加jar manifest配置
