@@ -11,8 +11,8 @@ subprojects {
     apply plugin: 'signing'
 
     group = 'pub.techfun'
-    //version = '0.0.1-SNAPSHOT'
-    version = '0.0.4'
+    //version = '0.0.5-SNAPSHOT'
+    version = '0.0.5'
     def isReleaseVersion = !version.endsWith("SNAPSHOT")
 
     repositories {
@@ -46,7 +46,6 @@ subprojects {
 
     publishing {
         publications {
-            components.java.withVariantsFromConfiguration(configurations.runtimeElements) { skip() }
             mavenJava(MavenPublication) {
                 group = group
                 artifact jar

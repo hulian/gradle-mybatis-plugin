@@ -2,7 +2,7 @@ buildscript {
     repositories { flatDir { name 'localRepository'} }
     repositories { localRepository { dirs '../dist'} }
     dependencies {
-        classpath group: 'pub.techfun', name: 'gradle-docker-plugin-java', version: '0.0.2'
+        classpath group: 'pub.techfun', name: 'gradle-docker-plugin-java', version: '0.0.5'
     }
 }
 

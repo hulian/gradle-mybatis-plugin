@@ -9,6 +9,9 @@ import java.nio.charset.StandardCharsets;
 import java.rmi.RemoteException;
 import java.util.List;
 
+/**
+ * @author henry
+ */
 public class SshShell {
 
     public static String executeCommand(Logger logger,String url, List<String> commands) {
