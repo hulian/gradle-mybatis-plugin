@@ -10,8 +10,13 @@ complete common tasks like build docker image, push to local or remore registry,
 2. if you want to deploy image to remote host, please make sure that remote host can be login from local host by ssh without password
 3. add plugin to build.gradle
 ```
+//use cmd version
 plugins {
-    id "pub.techfun.docker.plugin.cmd" version "0.0.5"
+    id "pub.techfun.docker.plugin.cmd" version "0.0.7"
+}
+// use java version
+plugins {
+    id "pub.techfun.docker.plugin.java" version "0.0.7"
 }
 ```
 4. add jar manifest configuration to build.gradle
