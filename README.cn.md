@@ -6,7 +6,7 @@
 #### 软件架构
 1. gradle-docker-plugin-common 公共代码模块
 2. gradle-docker-plugin-cmd    直接通过本机上的命令行环境执行docker任务
-3. gradle-docker-plugin-java   使用纯java客户端执行docker任务 开发中...
+3. gradle-docker-plugin-java   使用纯java客户端执行docker任务 
 4. plugin-cmd-example          使用样例
 5. plugin-java-example         使用样例
 6. dist                        插件jar包
@@ -16,8 +16,14 @@
 2. 如果要通过插件部署项目到远程机，需在远程机配置ssh免密登录
 3. 在build.gradle添加插件
 ```
+//使用cmd版
 plugins {
-    id "pub.techfun.docker.plugin.cmd" version "0.0.2"
+    id "pub.techfun.docker.plugin.cmd" version "0.0.5"
+}
+
+//使用java版
+plugins {
+    id "pub.techfun.docker.plugin.cmd" version "0.0.5"
 }
 ```
 4. 在build.gradle添加jar manifest配置

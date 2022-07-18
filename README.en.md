@@ -11,7 +11,7 @@ complete common tasks like build docker image, push to local or remore registry,
 3. add plugin to build.gradle
 ```
 plugins {
-    id "pub.techfun.docker.plugin.cmd" version "0.0.2"
+    id "pub.techfun.docker.plugin.cmd" version "0.0.5"
 }
 ```
 4. add jar manifest configuration to build.gradle
