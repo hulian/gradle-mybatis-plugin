@@ -60,9 +60,9 @@ subprojects {
                 artifact sourcesJar
                 artifact javadocJar
                 pom {
-                    name = "gradle-docker-plugin"
+                    name = "gradle-mybatis-plugin"
                     description = "Gradle Docker打包插件"
-                    url = "https://github.com/hulian/gradle-docker-plugin"
+                    url = "https://github.com/hulian/gradle-mybatis-plugin"
                     licenses {
                         license {
                             name = "The Apache License, Version 2.0"
@@ -77,9 +77,9 @@ subprojects {
                         }
                     }
                     scm {
-                        connection = "scm:git:https://github.com/hulian/gradle-docker-plugin.git"
-                        developerConnection = "scm:git: https://github.com/hulian/gradle-docker-plugin.git"
-                        url = "https://github.com/hulian/gradle-docker-plugin"
+                        connection = "scm:git:https://github.com/hulian/gradle-mybatis-plugin.git"
+                        developerConnection = "scm:git: https://github.com/hulian/gradle-mybatis-plugin.git"
+                        url = "https://github.com/hulian/gradle-mybatis-plugin"
                     }
                 }
             }

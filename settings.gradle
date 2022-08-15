@@ -1,9 +1,6 @@
-rootProject.name = 'gradle-docker-plugin'
+rootProject.name = 'gradle-mybatis-plugin'
 
-include 'gradle-docker-plugin-common'
-include 'gradle-docker-plugin-cmd'
-include 'gradle-docker-plugin-java'
+include 'gradle-mybatis-plugin-common'
+include 'gradle-mybatis-plugin-easydao'
 
-include 'plugin-java-example'
-include 'plugin-cmd-example'
 
