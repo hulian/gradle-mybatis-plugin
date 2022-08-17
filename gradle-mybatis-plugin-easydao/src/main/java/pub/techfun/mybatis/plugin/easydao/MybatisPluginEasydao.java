@@ -7,7 +7,9 @@ package pub.techfun.mybatis.plugin.easydao;
 import org.gradle.api.Plugin;
 import org.gradle.api.Project;
 import pub.techfun.mybatis.plugin.common.task.CreateConfigFileTask;
+import pub.techfun.mybatis.plugin.common.task.CreateConfigFolderTask;
 import pub.techfun.mybatis.plugin.common.util.LogUtil;
+import pub.techfun.mybatis.plugin.easydao.task.GenerateFileTask;
 
 /**
  * @author henry
@@ -16,9 +18,8 @@ public class MybatisPluginEasydao implements Plugin<Project> {
     public void apply(Project project) {
         // Register a task
 		LogUtil.setPluginName("gradle-mybatis-plugin-easydao");
-		var createConfigFile = project.getTasks()
-			.register( CreateConfigFileTask.TASK_NAME, CreateConfigFileTask.class)
-			.get();
-
+		project.getTasks().register(CreateConfigFolderTask.TASK_NAME, CreateConfigFolderTask.class);
+		project.getTasks().register( CreateConfigFileTask.TASK_NAME, CreateConfigFileTask.class);
+		project.getTasks().register(GenerateFileTask.TASK_NAME, GenerateFileTask.class);
     }
 }
