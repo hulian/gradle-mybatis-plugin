@@ -1,1 +1,8 @@
+buildscript {
+    repositories { flatDir { name 'localRepository'} }
+    repositories { localRepository { dirs '../../dist'} }
+    dependencies {
+        classpath group: 'pub.techfun', name: 'gradle-mybatis-plugin-easydao', version: '0.0.1-SNAPSHOT'
+    }
+}
 apply plugin: 'pub.techfun.mybatis.plugin.easydao'

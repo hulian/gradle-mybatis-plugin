@@ -36,7 +36,8 @@ jar {
     from {configurations.testRuntimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }}
             .include(
                     "META-INF/MANIFEST.MF", "META-INF/gradle-plugins/pub*",
-                    "pub/techfun/**", "generator/**", "org/mybatis/**"
+                    "pub/techfun/**", "generator-driver/**", "generator-default/**", "generator-easydao/**",
+                    "org/mybatis/**"
             ).duplicatesStrategy(DuplicatesStrategy.EXCLUDE)
 }
 
