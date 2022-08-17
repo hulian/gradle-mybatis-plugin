@@ -8,6 +8,10 @@ import pub.techfun.mybatis.plugin.easydao.generator.MybatisGenerator;
 
 public class GenerateFileTask  extends DefaultTask {
 
+    public GenerateFileTask(){
+        setGroup(Constants.GROUP_NAME);
+    }
+
 
     @TaskAction
     public void execute(){

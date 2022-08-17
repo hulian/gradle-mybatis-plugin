@@ -16,6 +16,10 @@ public class CreateConfigFolderTask extends DefaultTask {
 
 	public static final String TASK_NAME = "createConfigFolder";
 
+	public CreateConfigFolderTask(){
+		setGroup(Constants.GROUP_NAME);
+	}
+
 	@TaskAction
 	protected void exec() {
 		LogUtil.logLifeCycle(super.getLogger(),"创建Config目录");
