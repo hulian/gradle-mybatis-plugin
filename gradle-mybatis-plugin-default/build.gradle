@@ -1,0 +1,75 @@
+pluginBundle {
+    website = 'https://github.com/hulian/gradle-mybatis-plugin'
+    vcsUrl = 'https://github.com/hulian/gradle-mybatis-plugin'
+    description = 'Auto generate Entity,Mapper,Dao class for mybatis'
+    tags = ['mybatis', 'sql', 'mapper']
+    pluginTags = [
+        easydaoPlugin: ['mybatis', 'sql', 'mapper'],
+    ]
+}
+
+gradlePlugin {
+    // Define the plugin
+    plugins {
+        easydaoPlugin {
+            displayName = 'gradle-mybatis-plugin-default'
+            id = 'pub.techfun.mybatis.plugin.default'
+            implementationClass = 'pub.techfun.mybatis.def.MybatisPluginDefault'
+        }
+    }
+}
+
+// Add a source set for the functional test suite
+sourceSets {
+    functionalTest {
+    }
+}
+
+dependencies {
+    compileOnly project(':gradle-mybatis-plugin-common')
+    testImplementation project(':gradle-mybatis-plugin-common')
+    compileOnly 'org.mybatis.generator:mybatis-generator-core:1.4.1'
+    testImplementation 'org.mybatis.generator:mybatis-generator-core:1.4.1'
+}
+
+jar {
+    from {configurations.testRuntimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }}
+            .include(
+                    "META-INF/MANIFEST.MF", "META-INF/gradle-plugins/pub*",
+                    "pub/techfun/**", "generator/**", "org/mybatis/**"
+            ).duplicatesStrategy(DuplicatesStrategy.EXCLUDE)
+}
+
+gradlePlugin.testSourceSets(sourceSets.functionalTest)
+configurations.functionalTestImplementation.extendsFrom(configurations.testImplementation)
+
+//common模块不在运行时依赖里，不会自动编译
+compileJava.dependsOn(project(':gradle-mybatis-plugin-common').getTasks().getByName("build"))
+
+// Add a task to run the functional tests
+tasks.register('functionalTest', Test) {
+    testClassesDirs = sourceSets.functionalTest.output.classesDirs
+    classpath = sourceSets.functionalTest.runtimeClasspath
+    useJUnitPlatform()
+}
+
+tasks.named('check') {
+    // Run the functional tests as part of `check`
+    dependsOn(tasks.functionalTest)
+}
+
+tasks.named('test') {
+    // Use JUnit Platform for unit tests.
+    useJUnitPlatform()
+}
+
+task copyToDist {
+    doLast {
+        copy {
+            from "build/libs/$project.name-${project.version}.jar"
+            into "../dist"
+        }
+    }
+}
+build.finalizedBy(copyToDist)
+
