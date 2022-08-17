@@ -3,7 +3,8 @@ plugins{
 }
 
 ext {
-    set('lombokVersion', '1.18.18')
+    set('lombokVersion', '1.18.24')
+    set('mybatisGeneratorVersion', '1.4.1')
 }
 
 subprojects {
