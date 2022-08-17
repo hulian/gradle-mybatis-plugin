@@ -6,7 +6,7 @@ package pub.techfun.mybatis.plugin.easydao;
 import org.gradle.testfixtures.ProjectBuilder;
 import org.gradle.api.Project;
 import org.junit.jupiter.api.Test;
-import pub.techfun.docker.plugin.common.task.CreateDockerFolderTask;
+import pub.techfun.docker.plugin.common.task.CreateConfigFileTask;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -17,6 +17,6 @@ class CarbonDockerPluginPluginTest {
         project.getPlugins().apply("pub.techfun.mybatis.plugin.easydao");
 
         // Verify the result
-        assertNotNull(project.getTasks().findByName(CreateDockerFolderTask.TASK_NAME));
+        assertNotNull(project.getTasks().findByName(CreateConfigFileTask.TASK_NAME));
     }
 }

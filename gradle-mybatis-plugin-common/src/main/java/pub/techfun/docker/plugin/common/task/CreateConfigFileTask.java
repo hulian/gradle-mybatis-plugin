@@ -12,14 +12,13 @@ import java.nio.file.Paths;
 /**
  * @author henry
  */
-public class CreateDockerFileTask extends DefaultTask {
+public class CreateConfigFileTask extends DefaultTask {
 
-	public static final String TASK_NAME = "createDockerFile";
+	public static final String TASK_NAME = "createConfigFile";
 	private final String from;
 
-	public CreateDockerFileTask(){
-		from = getProject().getProjectDir().getPath() + Constants.DOCKER_FOLDER;
-		dependsOn(getProject().getTasks().getByName(CopyJarTask.TASK_NAME));
+	public CreateConfigFileTask(){
+		from = getProject().getProjectDir().getPath() + Constants.CONFIG_FOLDER;
 		setGroup(Constants.GROUP_NAME);
 	}
 
@@ -28,8 +27,8 @@ public class CreateDockerFileTask extends DefaultTask {
 		var file = Paths.get(from);
 		if(!Files.exists(file)){
 			LogUtil.logLifeCycle(getLogger(),"未配置Docker目录,从classpath复制:"+from);
-			FileResourcesUtils.copy(getLogger(), Constants.DOCKER_FOLDER,
-				getProject().getBuildDir().getPath() + Constants.DOCKER_FOLDER
+			FileResourcesUtils.copy(getLogger(), Constants.CONFIG_FOLDER,
+				getProject().getProjectDir().getPath() + "/" + Constants.CONFIG_FOLDER
 			);
 		}
 	}

@@ -1,1 +1,5 @@
 apply plugin: 'java-library'
+
+dependencies {
+    api 'org.mybatis.generator:mybatis-generator-core:1.4.1'
+}
