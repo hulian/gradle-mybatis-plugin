@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+  <context id="context">
+    <!-- 是否生成Lombok注解-->
+    <plugin type="pub.techfun.easydao.mybatis.generator.plugin.LombokPlugin"/>
+    <!-- 是否生成Swagger3注解-->
+    <plugin type="pub.techfun.easydao.mybatis.generator.plugin.SwaggerPlugin"/>
+    <!-- 是否让实体类继承指定类-->
+    <plugin type="pub.techfun.easydao.mybatis.generator.plugin.BaseEntityPlugin">
+        <property name="entitySuperClass" value="pub.techfun.easydao.core.entity.BaseEntity"/>
+    </plugin>
+    <!-- 是否让Mapper继承预先设定的类-->
+    <plugin type="pub.techfun.easydao.mybatis.generator.plugin.MapperInterfacePlugin"/>
+    <!-- 去除自动生成的注解 -->
+    <commentGenerator type="pub.techfun.easydao.mybatis.generator.plugin.EmptyCommentGenerator"/>
+
+    <jdbcConnection
+        connectionURL="jdbc:mysql://localhost:3306/ds?serverTimezone=GMT%2B8"
+        driverClass="com.mysql.cj.jdbc.Driver"
+        password="111111"
+        userId="root"
+    >
+      <!--   指定数据库，不生成其他数据库的表   -->
+      <property name="nullCatalogMeansCurrent" value="true"/>
+    </jdbcConnection>
+
+    <javaModelGenerator
+        targetPackage="pub.techfun.easydao.mybatis.test.entity"
+        targetProject="easydao-mybatis/src/test/java"
+    />
+
+    <javaClientGenerator
+        type="XMLMAPPER"
+        targetPackage="pub.techfun.easydao.mybatis.test.mapper"
+        targetProject="easydao-mybatis/src/test/java"
+    />
+
+    <table tableName="%%">
+      <columnOverride column="id" javaType="java.math.BigInteger"/>
+    </table>
+
+  </context>
+</generatorConfiguration>
