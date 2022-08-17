@@ -14,7 +14,6 @@ public class GenerateFileTask  extends DefaultTask {
         setGroup(Constants.GROUP_NAME);
     }
 
-
     @TaskAction
     public void execute(){
         new MybatisGenerator(new DdlConfig(true, true))
