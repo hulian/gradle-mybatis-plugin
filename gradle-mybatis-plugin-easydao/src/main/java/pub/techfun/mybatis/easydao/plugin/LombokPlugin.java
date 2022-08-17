@@ -1,9 +1,7 @@
-package pub.techfun.mybatis.plugin.easydao.generator.plugin;
+package pub.techfun.mybatis.easydao.plugin;
 
-import org.mybatis.generator.api.IntrospectedColumn;
 import org.mybatis.generator.api.IntrospectedTable;
 import org.mybatis.generator.api.PluginAdapter;
-import org.mybatis.generator.api.dom.java.Field;
 import org.mybatis.generator.api.dom.java.FullyQualifiedJavaType;
 import org.mybatis.generator.api.dom.java.TopLevelClass;
 
@@ -13,7 +11,7 @@ import java.util.Properties;
 /**
  * @author henry
  */
-public class SwaggerPlugin extends PluginAdapter {
+public class LombokPlugin extends PluginAdapter {
 
 	@Override
 	public void setProperties(Properties properties) {
@@ -44,19 +42,11 @@ public class SwaggerPlugin extends PluginAdapter {
 	}
 
 	private void generateToString(IntrospectedTable introspectedTable, TopLevelClass topLevelClass) {
-		topLevelClass.addAnnotation(getSchemaAnnotation(introspectedTable.getRemarks()));
-	}
-
-	@Override
-	public boolean modelFieldGenerated(Field field, TopLevelClass topLevelClass, IntrospectedColumn introspectedColumn, IntrospectedTable introspectedTable, ModelClassType modelClassType) {
-
-		topLevelClass.addImportedType(new FullyQualifiedJavaType("io.swagger.v3.oas.annotations.media.Schema"));
-		field.addAnnotation(getSchemaAnnotation(introspectedColumn.getRemarks()));
-		return true;
-	}
-
-	private String getSchemaAnnotation(String comment) {
-		return "@Schema(description= \"" + comment + "\" )";
+		topLevelClass.addImportedType(new FullyQualifiedJavaType("lombok.Data"));
+		topLevelClass.addAnnotation("@Data");
+		topLevelClass.addImportedType(new FullyQualifiedJavaType("lombok.EqualsAndHashCode"));
+		topLevelClass.addAnnotation("@EqualsAndHashCode(callSuper = true)");
+		topLevelClass.getMethods().clear();
 	}
 
 }

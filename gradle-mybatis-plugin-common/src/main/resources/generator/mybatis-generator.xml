@@ -5,17 +5,17 @@
   <classPathEntry location="/media/henry/DOC/opensource/gradle-mybatis-plugin/example/easydao-example/generator/mysql-connector-java-8.0.22.jar" />
   <context id="context">
     <!-- 是否生成Lombok注解-->
-    <plugin type="pub.techfun.mybatis.plugin.easydao.generator.plugin.LombokPlugin"/>
+    <plugin type="pub.techfun.mybatis.plugin.easydao.plugin.LombokPlugin"/>
     <!-- 是否生成Swagger3注解-->
-    <plugin type="pub.techfun.mybatis.plugin.easydao.generator.plugin.SwaggerPlugin"/>
+    <plugin type="pub.techfun.mybatis.plugin.easydao.plugin.SwaggerPlugin"/>
     <!-- 是否让实体类继承指定类-->
-    <plugin type="pub.techfun.mybatis.plugin.easydao.generator.plugin.BaseEntityPlugin">
+    <plugin type="pub.techfun.mybatis.plugin.easydao.plugin.BaseEntityPlugin">
         <property name="entitySuperClass" value="pub.techfun.easydao.core.entity.BaseEntity"/>
     </plugin>
     <!-- 是否让Mapper继承预先设定的类-->
-    <plugin type="pub.techfun.mybatis.plugin.easydao.generator.plugin.MapperInterfacePlugin"/>
+    <plugin type="pub.techfun.mybatis.plugin.easydao.plugin.MapperInterfacePlugin"/>
     <!-- 去除自动生成的注解 -->
-    <commentGenerator type="pub.techfun.mybatis.plugin.easydao.generator.plugin.EmptyCommentGenerator"/>
+    <commentGenerator type="pub.techfun.mybatis.plugin.easydao.plugin.EmptyCommentGenerator"/>
 
     <jdbcConnection
         connectionURL="jdbc:mysql://localhost:3306/ds?serverTimezone=GMT%2B8"

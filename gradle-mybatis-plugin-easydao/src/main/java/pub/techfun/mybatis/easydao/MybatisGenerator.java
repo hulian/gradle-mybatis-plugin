@@ -1,9 +1,10 @@
-package pub.techfun.mybatis.plugin.easydao.generator;
+package pub.techfun.mybatis.easydao;
 
 import org.mybatis.generator.api.MyBatisGenerator;
 import org.mybatis.generator.config.Configuration;
 import org.mybatis.generator.config.xml.ConfigurationParser;
 import org.mybatis.generator.internal.DefaultShellCallback;
+import pub.techfun.mybatis.easydao.config.DdlConfig;
 
 import java.io.File;
 import java.util.ArrayList;

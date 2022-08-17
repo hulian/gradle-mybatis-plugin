@@ -14,7 +14,7 @@ gradlePlugin {
         easydaoPlugin {
             displayName = 'gradle-mybatis-plugin-easydao'
             id = 'pub.techfun.mybatis.plugin.easydao'
-            implementationClass = 'pub.techfun.mybatis.plugin.easydao.MybatisPluginEasydao'
+            implementationClass = 'pub.techfun.mybatis.easydao.MybatisPluginEasydao'
         }
     }
 }

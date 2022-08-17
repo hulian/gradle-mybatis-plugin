@@ -1,10 +1,10 @@
-package pub.techfun.mybatis.plugin.easydao.task;
+package pub.techfun.mybatis.easydao.task;
 
 import org.gradle.api.DefaultTask;
 import org.gradle.api.tasks.TaskAction;
+import pub.techfun.mybatis.easydao.MybatisGenerator;
+import pub.techfun.mybatis.easydao.config.DdlConfig;
 import pub.techfun.mybatis.plugin.common.constants.Constants;
-import pub.techfun.mybatis.plugin.easydao.generator.DdlConfig;
-import pub.techfun.mybatis.plugin.easydao.generator.MybatisGenerator;
 
 public class GenerateFileTask  extends DefaultTask {
 

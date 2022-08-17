@@ -1,4 +1,4 @@
-package pub.techfun.mybatis.plugin.easydao.generator.plugin;
+package pub.techfun.mybatis.easydao.plugin;
 
 import lombok.extern.slf4j.Slf4j;
 import org.mybatis.generator.api.IntrospectedTable;
