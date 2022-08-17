@@ -14,7 +14,7 @@ gradlePlugin {
         easydaoPlugin {
             displayName = 'gradle-mybatis-plugin-easydao'
             id = 'pub.techfun.mybatis.plugin.easydao'
-            implementationClass = 'pub.techfun.docker.plugin.cmd.DockerPluginCmd'
+            implementationClass = 'pub.techfun.mybatis.plugin.easydao.MybatisPluginEasydao'
         }
     }
 }
@@ -34,7 +34,7 @@ jar {
     from {configurations.testRuntimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }}
             .include(
                     "META-INF/MANIFEST.MF", "META-INF/gradle-plugins/pub*",
-                    "pub/techfun/**"
+                    "pub/techfun/**", "generator/**"
             ).duplicatesStrategy(DuplicatesStrategy.EXCLUDE)
 }
 

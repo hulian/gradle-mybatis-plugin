@@ -12,7 +12,7 @@ import pub.techfun.docker.plugin.common.util.LogUtil;
 /**
  * @author henry
  */
-public class DockerPluginCmd implements Plugin<Project> {
+public class MybatisPluginEasydao implements Plugin<Project> {
     public void apply(Project project) {
         // Register a task
 		LogUtil.setPluginName("gradle-mybatis-plugin-easydao");
