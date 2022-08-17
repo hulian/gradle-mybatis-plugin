@@ -19,6 +19,7 @@ public class CreateConfigFileTask extends DefaultTask {
 
 	public CreateConfigFileTask(){
 		from = getProject().getProjectDir().getPath() + Constants.CONFIG_FOLDER;
+		dependsOn(getProject().getTasks().getByName(CreateConfigFolderTask.TASK_NAME));
 		setGroup(Constants.GROUP_NAME);
 	}
 
@@ -26,7 +27,7 @@ public class CreateConfigFileTask extends DefaultTask {
 	protected void copy() {
 		var file = Paths.get(from);
 		if(!Files.exists(file)){
-			LogUtil.logLifeCycle(getLogger(),"未配置Docker目录,从classpath复制:"+from);
+			LogUtil.logLifeCycle(getLogger(),"未配置Config目录,从classpath复制:"+from);
 			FileResourcesUtils.copy(getLogger(), Constants.CONFIG_FOLDER,
 				getProject().getProjectDir().getPath() + "/" + Constants.CONFIG_FOLDER
 			);

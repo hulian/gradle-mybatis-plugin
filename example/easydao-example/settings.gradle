@@ -1,0 +1,4 @@
+rootProject.name = 'examples'
+
+// 模块
+include ':easydao-example'
