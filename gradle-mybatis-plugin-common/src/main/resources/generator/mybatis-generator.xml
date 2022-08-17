@@ -1,19 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
 <generatorConfiguration>
+  <!-- 驱动路径-->
+  <classPathEntry location="/media/henry/DOC/opensource/gradle-mybatis-plugin/example/easydao-example/generator/mysql-connector-java-8.0.22.jar" />
   <context id="context">
     <!-- 是否生成Lombok注解-->
-    <plugin type="pub.techfun.easydao.mybatis.generator.plugin.LombokPlugin"/>
+    <plugin type="pub.techfun.mybatis.plugin.easydao.generator.plugin.LombokPlugin"/>
     <!-- 是否生成Swagger3注解-->
-    <plugin type="pub.techfun.easydao.mybatis.generator.plugin.SwaggerPlugin"/>
+    <plugin type="pub.techfun.mybatis.plugin.easydao.generator.plugin.SwaggerPlugin"/>
     <!-- 是否让实体类继承指定类-->
-    <plugin type="pub.techfun.easydao.mybatis.generator.plugin.BaseEntityPlugin">
+    <plugin type="pub.techfun.mybatis.plugin.easydao.generator.plugin.BaseEntityPlugin">
         <property name="entitySuperClass" value="pub.techfun.easydao.core.entity.BaseEntity"/>
     </plugin>
     <!-- 是否让Mapper继承预先设定的类-->
-    <plugin type="pub.techfun.easydao.mybatis.generator.plugin.MapperInterfacePlugin"/>
+    <plugin type="pub.techfun.mybatis.plugin.easydao.generator.plugin.MapperInterfacePlugin"/>
     <!-- 去除自动生成的注解 -->
-    <commentGenerator type="pub.techfun.easydao.mybatis.generator.plugin.EmptyCommentGenerator"/>
+    <commentGenerator type="pub.techfun.mybatis.plugin.easydao.generator.plugin.EmptyCommentGenerator"/>
 
     <jdbcConnection
         connectionURL="jdbc:mysql://localhost:3306/ds?serverTimezone=GMT%2B8"
@@ -26,14 +28,14 @@
     </jdbcConnection>
 
     <javaModelGenerator
-        targetPackage="pub.techfun.easydao.mybatis.test.entity"
-        targetProject="easydao-mybatis/src/test/java"
+        targetPackage="test.entity"
+        targetProject="/media/henry/DOC/opensource/gradle-mybatis-plugin/example/easydao-example"
     />
 
     <javaClientGenerator
         type="XMLMAPPER"
-        targetPackage="pub.techfun.easydao.mybatis.test.mapper"
-        targetProject="easydao-mybatis/src/test/java"
+        targetPackage="test.mapper"
+        targetProject="/media/henry/DOC/opensource/gradle-mybatis-plugin/example/easydao-example"
     />
 
     <table tableName="%%">
