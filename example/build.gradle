@@ -10,7 +10,6 @@ buildscript {
 subprojects {
 
     apply plugin: 'java'
-    apply plugin: 'pub.techfun.mybatis.plugin.easydao'
 
     group 'org.example'
     version '0.0.1'
