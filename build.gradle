@@ -14,10 +14,16 @@ subprojects {
     apply plugin: 'maven-publish'
     apply plugin: 'signing'
 
+    // 版本控制
+    def SNAPSHOT = true
+    def VERSION = '0.0.1'
     group = 'pub.techfun'
-    //version = '0.0.5-SNAPSHOT'
-    version = '0.0.1'
-    def isReleaseVersion = !version.endsWith("SNAPSHOT")
+    if(SNAPSHOT) {
+        version = "${VERSION}-SNAPSHOT"
+    }else {
+        version = "${VERSION}"
+    }
+    def IS_RELEASE = !version.endsWith("SNAPSHOT")
 
     repositories {
         mavenLocal()
@@ -88,7 +94,7 @@ subprojects {
         repositories {
             maven {
                 name = 'sonatype'
-                if(isReleaseVersion){
+                if(IS_RELEASE){
                     url = 'https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/'
                 }else{
                     url = 'https://s01.oss.sonatype.org/content/repositories/snapshots/'
@@ -102,7 +108,7 @@ subprojects {
     }
 
     signing {
-        required { isReleaseVersion && gradle.taskGraph.hasTask("publishMavenJavaPublicationToSonatypeRepository") }
+        required { IS_RELEASE && gradle.taskGraph.hasTask("publishMavenJavaPublicationToSonatypeRepository") }
         sign publishing.publications.mavenJava
     }
 }
