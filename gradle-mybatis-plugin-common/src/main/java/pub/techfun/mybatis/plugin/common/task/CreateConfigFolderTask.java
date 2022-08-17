@@ -23,7 +23,7 @@ public class CreateConfigFolderTask extends DefaultTask {
 	@TaskAction
 	protected void exec() {
 		LogUtil.logLifeCycle(super.getLogger(),"创建Config目录");
-		var path = Paths.get(super.getProject().getBuildDir().getPath()
+		var path = Paths.get(super.getProject().getProjectDir().getPath()
 				+ "/" +Constants.CONFIG_FOLDER);
 		try {
 			Files.createDirectories(path);
