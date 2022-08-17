@@ -15,6 +15,7 @@ import java.nio.file.Paths;
 public class CreateConfigFileTask extends DefaultTask {
 
 	public static final String TASK_NAME = "createConfigFile";
+	public static String TYPE;
 	private final String from;
 
 	public CreateConfigFileTask(){
@@ -28,8 +29,11 @@ public class CreateConfigFileTask extends DefaultTask {
 		var file = Paths.get(from);
 		if(!Files.exists(file)){
 			LogUtil.logLifeCycle(getLogger(),"未配置Config目录,从classpath复制:"+from);
-			FileResourcesUtils.copy(getLogger(), Constants.CONFIG_FOLDER,
-				getProject().getProjectDir().getPath() + "/" + Constants.CONFIG_FOLDER
+			FileResourcesUtils.copy(getLogger(), Constants.CONFIG_FOLDER+"-driver",
+					getProject().getProjectDir().getPath() + "/" + Constants.CONFIG_FOLDER
+			);
+			FileResourcesUtils.copy(getLogger(), Constants.CONFIG_FOLDER+"-"+TYPE,
+					getProject().getProjectDir().getPath() + "/" + Constants.CONFIG_FOLDER
 			);
 		}
 	}
