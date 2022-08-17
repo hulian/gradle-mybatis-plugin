@@ -3,12 +3,12 @@
  */
 package pub.techfun.mybatis.plugin.easydao;
 
-import org.gradle.testfixtures.ProjectBuilder;
 import org.gradle.api.Project;
+import org.gradle.testfixtures.ProjectBuilder;
 import org.junit.jupiter.api.Test;
-import pub.techfun.docker.plugin.common.task.CreateConfigFileTask;
+import pub.techfun.mybatis.plugin.common.task.CreateConfigFileTask;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 class CarbonDockerPluginPluginTest {
     @Test void pluginRegistersATask() {

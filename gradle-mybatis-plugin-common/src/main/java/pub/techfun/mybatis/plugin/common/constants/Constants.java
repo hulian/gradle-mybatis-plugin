@@ -1,4 +1,4 @@
-package pub.techfun.docker.plugin.common.constants;
+package pub.techfun.mybatis.plugin.common.constants;
 
 /**
  * @author henry

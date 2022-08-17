@@ -1,4 +1,4 @@
-package pub.techfun.docker.plugin.common.util;
+package pub.techfun.mybatis.plugin.common.util;
 
 import org.gradle.api.Project;
 

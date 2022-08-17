@@ -6,8 +6,8 @@ package pub.techfun.mybatis.plugin.easydao;
 
 import org.gradle.api.Plugin;
 import org.gradle.api.Project;
-import pub.techfun.docker.plugin.common.task.CreateConfigFileTask;
-import pub.techfun.docker.plugin.common.util.LogUtil;
+import pub.techfun.mybatis.plugin.common.task.CreateConfigFileTask;
+import pub.techfun.mybatis.plugin.common.util.LogUtil;
 
 /**
  * @author henry

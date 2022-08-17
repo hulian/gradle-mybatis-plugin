@@ -1,7 +1,7 @@
-package pub.techfun.docker.plugin.common.util;
+package pub.techfun.mybatis.plugin.common.util;
 
 import org.gradle.api.Project;
-import pub.techfun.docker.plugin.common.constants.Constants;
+import pub.techfun.mybatis.plugin.common.constants.Constants;
 
 
 /**

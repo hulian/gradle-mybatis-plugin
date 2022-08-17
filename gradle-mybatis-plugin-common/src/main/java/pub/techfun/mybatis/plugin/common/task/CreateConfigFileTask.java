@@ -1,10 +1,10 @@
-package pub.techfun.docker.plugin.common.task;
+package pub.techfun.mybatis.plugin.common.task;
 
 import org.gradle.api.DefaultTask;
 import org.gradle.api.tasks.TaskAction;
-import pub.techfun.docker.plugin.common.constants.Constants;
-import pub.techfun.docker.plugin.common.util.FileResourcesUtils;
-import pub.techfun.docker.plugin.common.util.LogUtil;
+import pub.techfun.mybatis.plugin.common.constants.Constants;
+import pub.techfun.mybatis.plugin.common.util.FileResourcesUtils;
+import pub.techfun.mybatis.plugin.common.util.LogUtil;
 
 import java.nio.file.Files;
 import java.nio.file.Paths;
