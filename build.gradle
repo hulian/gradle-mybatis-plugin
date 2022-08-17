@@ -17,7 +17,7 @@ subprojects {
 
     // 版本控制
     def SNAPSHOT = true
-    def VERSION = '0.0.1'
+    def VERSION = '0.0.2'
     group = 'pub.techfun'
     if(SNAPSHOT) {
         version = "${VERSION}-SNAPSHOT"
