@@ -16,8 +16,8 @@ subprojects {
     apply plugin: 'signing'
 
     // 版本控制
-    def SNAPSHOT = true
-    def VERSION = '0.0.2'
+    def SNAPSHOT = false
+    def VERSION = '0.0.3'
     group = 'pub.techfun'
     if(SNAPSHOT) {
         version = "${VERSION}-SNAPSHOT"
