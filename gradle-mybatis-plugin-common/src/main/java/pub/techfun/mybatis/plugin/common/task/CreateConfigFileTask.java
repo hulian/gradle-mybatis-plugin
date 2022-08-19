@@ -19,8 +19,8 @@ public class CreateConfigFileTask extends DefaultTask {
 	private final String from;
 
 	public CreateConfigFileTask(){
-		from = getProject().getProjectDir().getPath() + Constants.CONFIG_FOLDER;
-		dependsOn(getProject().getTasks().getByName(CreateConfigFolderTask.TASK_NAME));
+		from = getProject().getProjectDir().getPath() +"/"+ Constants.CONFIG_FOLDER;
+		dependsOn(getProject().getTasks().getByName(CopyConfigFileTask.TASK_NAME));
 		setGroup(Constants.GROUP_NAME);
 	}
 
