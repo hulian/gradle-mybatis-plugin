@@ -16,5 +16,4 @@ tmp/
 yarn.lock
 package-lock.json
 example/**/test/
-generator/
 dist/
