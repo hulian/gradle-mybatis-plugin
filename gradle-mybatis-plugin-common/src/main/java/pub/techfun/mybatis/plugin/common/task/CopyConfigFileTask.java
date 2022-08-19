@@ -13,10 +13,10 @@ public class CopyConfigFileTask extends Copy {
 	private final String from;
 
 	public CopyConfigFileTask(){
-		from = getProject().getProjectDir().getPath() + Constants.CONFIG_FOLDER;
+		from = getProject().getProjectDir().getPath() +"/"+ Constants.CONFIG_FOLDER;
 		dependsOn(getProject().getTasks().getByName(CreateConfigFolderTask.TASK_NAME));
 		setGroup(Constants.GROUP_NAME);
-		into(getProject().getBuildDir().getPath() + Constants.CONFIG_FOLDER);
+		into(getProject().getBuildDir().getPath() +"/"+ Constants.CONFIG_FOLDER);
 		from(from);
 	}
 
