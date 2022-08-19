@@ -27,11 +27,11 @@ public class CreateConfigFileTask extends DefaultTask {
 	@TaskAction
 	protected void copy() {
 		var file = Paths.get(from);
+		FileResourcesUtils.copy(getLogger(), Constants.CONFIG_FOLDER+"-driver",
+				getProject().getBuildDir().getPath() + "/" + Constants.CONFIG_FOLDER
+		);
 		if(!Files.exists(file)){
 			LogUtil.logLifeCycle(getLogger(),"未配置Config目录,从classpath复制:"+from);
-			FileResourcesUtils.copy(getLogger(), Constants.CONFIG_FOLDER+"-driver",
-					getProject().getBuildDir().getPath() + "/" + Constants.CONFIG_FOLDER
-			);
 			FileResourcesUtils.copy(getLogger(), Constants.CONFIG_FOLDER+"-"+TYPE,
 					getProject().getBuildDir().getPath() + "/" + Constants.CONFIG_FOLDER
 			);
