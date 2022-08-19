@@ -17,7 +17,7 @@ public class GenerateFileTask  extends DefaultTask {
     @TaskAction
     public void execute(){
         new MybatisGenerator(new DdlConfig(true, true))
-                .run(getProject().getProjectDir().getPath()
+                .run(getProject().getBuildDir().getPath()
                         + "/" + Constants.CONFIG_FOLDER + "/" + Constants.CONFIG_FILE);
     }
 }

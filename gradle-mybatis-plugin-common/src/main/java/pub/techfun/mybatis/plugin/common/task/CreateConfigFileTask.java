@@ -30,10 +30,10 @@ public class CreateConfigFileTask extends DefaultTask {
 		if(!Files.exists(file)){
 			LogUtil.logLifeCycle(getLogger(),"未配置Config目录,从classpath复制:"+from);
 			FileResourcesUtils.copy(getLogger(), Constants.CONFIG_FOLDER+"-driver",
-					getProject().getProjectDir().getPath() + "/" + Constants.CONFIG_FOLDER
+					getProject().getBuildDir().getPath() + "/" + Constants.CONFIG_FOLDER
 			);
 			FileResourcesUtils.copy(getLogger(), Constants.CONFIG_FOLDER+"-"+TYPE,
-					getProject().getProjectDir().getPath() + "/" + Constants.CONFIG_FOLDER
+					getProject().getBuildDir().getPath() + "/" + Constants.CONFIG_FOLDER
 			);
 		}
 	}
