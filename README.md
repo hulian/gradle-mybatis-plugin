@@ -22,5 +22,5 @@ plugins {
 #### Instructions
 
 1. create default configuration file:  ./gradlew module:createConfigFile
-2. modify configuration file in the folder 'generator' of project root director
+2. modify configuration file in the folder 'generator' 
 3. generate classes: ./gradlew module:generateFile
