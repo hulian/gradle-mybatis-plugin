@@ -44,7 +44,7 @@ public class CreateConfigFileTask extends DefaultTask {
 		}else{
 			file = Paths.get(defaultConfigFrom);
 			if(Files.exists(file)) {
-				LogUtil.logLifeCycle(getLogger(), "有配置Config目录,从Config目录:" + configFrom);
+				LogUtil.logLifeCycle(getLogger(), "有配置Config目录,从Config目录复制:" + configFrom);
 				Files.walkFileTree(file, new SimpleFileVisitor<>() {
 					@Override
 					public FileVisitResult visitFile(Path file, BasicFileAttributes attrs) throws IOException {
