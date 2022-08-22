@@ -27,9 +27,12 @@ public class CreateConfigFolderTask extends DefaultTask {
 				+ "/" +Constants.DRIVER_FOLDER);
 		var configPath = Paths.get(super.getProject().getBuildDir().getPath()
 				+ "/" +Constants.CONFIG_FOLDER);
+		var defaultConfigPath = Paths.get(super.getProject().getProjectDir().getPath()
+				+ "/" +Constants.CONFIG_FOLDER);
 		try {
 			Files.createDirectories(driverPath);
 			Files.createDirectories(configPath);
+			Files.createDirectories(defaultConfigPath);
 		} catch (IOException e) {
 			throw new RuntimeException(e);
 		}

@@ -20,7 +20,7 @@ public class MybatisPluginEasydao implements Plugin<Project> {
     public void apply(Project project) {
         // Register a task
 		LogUtil.setPluginName("gradle-mybatis-plugin-easydao");
-		CreateConfigFileTask.TYPE="easydao";
+		CreateDefaultConfigTask.TYPE=CreateConfigFileTask.TYPE="easydao";
 		project.getTasks().register(CreateDefaultConfigTask.TASK_NAME, CreateDefaultConfigTask.class);
 		project.getTasks().register(CreateConfigFolderTask.TASK_NAME, CreateConfigFolderTask.class);
 		project.getTasks().register( CopyConfigFileTask.TASK_NAME, CopyConfigFileTask.class);

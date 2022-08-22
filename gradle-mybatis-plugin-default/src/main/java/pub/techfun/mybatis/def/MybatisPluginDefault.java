@@ -20,7 +20,7 @@ public class MybatisPluginDefault implements Plugin<Project> {
     public void apply(Project project) {
         // Register a task
 		LogUtil.setPluginName("gradle-mybatis-plugin-def");
-		CreateConfigFileTask.TYPE="default";
+		CreateDefaultConfigTask.TYPE=CreateConfigFileTask.TYPE="default";
 		project.getTasks().register(CreateDefaultConfigTask.TASK_NAME, CreateDefaultConfigTask.class);
 		project.getTasks().register(CreateConfigFolderTask.TASK_NAME, CreateConfigFolderTask.class);
 		project.getTasks().register( CopyConfigFileTask.TASK_NAME, CopyConfigFileTask.class);
