@@ -23,10 +23,13 @@ public class CreateConfigFolderTask extends DefaultTask {
 	@TaskAction
 	protected void exec() {
 		LogUtil.logLifeCycle(super.getLogger(),"创建Config目录");
-		var path = Paths.get(super.getProject().getBuildDir().getPath()
+		var driverPath = Paths.get(super.getProject().getBuildDir().getPath()
+				+ "/" +Constants.DRIVER_FOLDER);
+		var configPath = Paths.get(super.getProject().getBuildDir().getPath()
 				+ "/" +Constants.CONFIG_FOLDER);
 		try {
-			Files.createDirectories(path);
+			Files.createDirectories(driverPath);
+			Files.createDirectories(configPath);
 		} catch (IOException e) {
 			throw new RuntimeException(e);
 		}

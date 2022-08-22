@@ -8,7 +8,7 @@ import org.gradle.api.logging.Logger;
 public class LogUtil {
 
 	private static String pluginName;
-	public static void logLifeCycle(Logger logger, String args){
+	public static void logLifeCycle(Logger logger, Object ... args){
 		logger.lifecycle("["+pluginName+"]{}",args);
 	}
 
