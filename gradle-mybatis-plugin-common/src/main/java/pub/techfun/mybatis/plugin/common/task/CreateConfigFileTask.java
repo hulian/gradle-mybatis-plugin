@@ -21,9 +21,8 @@ public class CreateConfigFileTask extends DefaultTask {
 	private final String driverFrom;
 
 	public CreateConfigFileTask(){
-		configFrom = getProject().getProjectDir().getPath() +"/"+ Constants.CONFIG_FOLDER;
-		driverFrom = getProject().getProjectDir().getPath() +"/"+ Constants.DRIVER_FOLDER;
-		dependsOn(getProject().getTasks().getByName(CopyConfigFileTask.TASK_NAME));
+		driverFrom = getProject().getBuildDir().getPath() +"/"+ Constants.DRIVER_FOLDER;
+		configFrom = getProject().getBuildDir().getPath() +"/"+ Constants.CONFIG_FOLDER;
 		setGroup(Constants.GROUP_NAME);
 	}
 
@@ -32,16 +31,14 @@ public class CreateConfigFileTask extends DefaultTask {
 		var file = Paths.get(driverFrom);
 		if(!Files.exists(file)) {
 			LogUtil.logLifeCycle(getLogger(),"未发现driver目录,从classpath复制:"+driverFrom);
-			FileResourcesUtils.copy(getLogger(), Constants.CONFIG_FOLDER + "-driver",
-					getProject().getBuildDir().getPath() + "/" + Constants.DRIVER_FOLDER
-			);
+			Files.createDirectories(file);
+			FileResourcesUtils.copy(getLogger(), Constants.CONFIG_FOLDER + "-driver", driverFrom);
 		}
 		file = Paths.get(configFrom);
 		if(!Files.exists(file)){
 			LogUtil.logLifeCycle(getLogger(),"未配置Config目录,从classpath复制");
-			FileResourcesUtils.copy(getLogger(), Constants.CONFIG_FOLDER+"-"+TYPE,
-					getProject().getBuildDir().getPath() + "/" + Constants.CONFIG_FOLDER
-			);
+			Files.createDirectories(file);
+			FileResourcesUtils.copy(getLogger(), Constants.CONFIG_FOLDER+"-"+TYPE, configFrom);
 		}else{
 			LogUtil.logLifeCycle(getLogger(),"有配置Config目录,从Config目录:"+configFrom);
 			Files.walkFileTree(file,new SimpleFileVisitor<>(){
@@ -49,8 +46,7 @@ public class CreateConfigFileTask extends DefaultTask {
 				public FileVisitResult visitFile(Path file, BasicFileAttributes attrs) throws IOException {
 					Files.copy(
 							file,
-							Paths.get(getProject().getBuildDir().getPath() , Constants.CONFIG_FOLDER ,
-									file.getFileName().toString()),
+							Paths.get(configFrom , file.getFileName().toString()),
 							StandardCopyOption.REPLACE_EXISTING
 					);
 					return super.visitFile(file, attrs);
