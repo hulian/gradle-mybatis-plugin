@@ -6,6 +6,7 @@ import pub.techfun.mybatis.plugin.common.constants.Constants;
 import pub.techfun.mybatis.plugin.common.util.FileResourcesUtils;
 import pub.techfun.mybatis.plugin.common.util.LogUtil;
 
+import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
@@ -25,10 +26,11 @@ public class CreateDefaultConfigTask extends DefaultTask {
 	}
 
 	@TaskAction
-	protected void copy() {
+	protected void copy() throws IOException {
 		var file = Paths.get(configFrom);
 		if(!Files.exists(file)){
 			LogUtil.logLifeCycle(getLogger(),"生成默认配置,从classpath复制:"+configFrom);
+			Files.createDirectories(file);
 			FileResourcesUtils.copy(getLogger(), Constants.CONFIG_FOLDER+"-"+TYPE,
 					getProject().getProjectDir().getPath() + "/" + Constants.CONFIG_FOLDER
 			);
