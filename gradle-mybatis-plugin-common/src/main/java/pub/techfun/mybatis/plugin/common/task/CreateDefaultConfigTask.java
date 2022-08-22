@@ -12,13 +12,13 @@ import java.nio.file.Paths;
 /**
  * @author henry
  */
-public class CreateDefaultFileTask extends DefaultTask {
+public class CreateDefaultConfigTask extends DefaultTask {
 
-	public static final String TASK_NAME = "createConfigFile";
+	public static final String TASK_NAME = "createDefaultConfig";
 	public static String TYPE;
 	private final String configFrom;
 
-	public CreateDefaultFileTask(){
+	public CreateDefaultConfigTask(){
 		configFrom = getProject().getProjectDir().getPath() +"/"+ Constants.CONFIG_FOLDER;
 		dependsOn(getProject().getTasks().getByName(CopyConfigFileTask.TASK_NAME));
 		setGroup(Constants.GROUP_NAME);

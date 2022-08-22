@@ -10,7 +10,7 @@ import pub.techfun.mybatis.def.task.GenerateFileTask;
 import pub.techfun.mybatis.plugin.common.task.CopyConfigFileTask;
 import pub.techfun.mybatis.plugin.common.task.CreateConfigFileTask;
 import pub.techfun.mybatis.plugin.common.task.CreateConfigFolderTask;
-import pub.techfun.mybatis.plugin.common.task.CreateDefaultFileTask;
+import pub.techfun.mybatis.plugin.common.task.CreateDefaultConfigTask;
 import pub.techfun.mybatis.plugin.common.util.LogUtil;
 
 /**
@@ -21,7 +21,7 @@ public class MybatisPluginDefault implements Plugin<Project> {
         // Register a task
 		LogUtil.setPluginName("gradle-mybatis-plugin-def");
 		CreateConfigFileTask.TYPE="default";
-		project.getTasks().register(CreateDefaultFileTask.TASK_NAME, CreateDefaultFileTask.class);
+		project.getTasks().register(CreateDefaultConfigTask.TASK_NAME, CreateDefaultConfigTask.class);
 		project.getTasks().register(CreateConfigFolderTask.TASK_NAME, CreateConfigFolderTask.class);
 		project.getTasks().register( CopyConfigFileTask.TASK_NAME, CopyConfigFileTask.class);
 		project.getTasks().register( CreateConfigFileTask.TASK_NAME, CreateConfigFileTask.class);
