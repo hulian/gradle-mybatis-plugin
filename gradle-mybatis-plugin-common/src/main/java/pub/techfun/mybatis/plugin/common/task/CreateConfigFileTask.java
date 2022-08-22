@@ -31,31 +31,31 @@ public class CreateConfigFileTask extends DefaultTask {
 	@TaskAction
 	protected void copy() throws IOException {
 		var file = Paths.get(driverFrom);
-		if(!Files.exists(file)) {
-			LogUtil.logLifeCycle(getLogger(),"未发现driver目录,从classpath复制:"+driverFrom);
+		if (!Files.exists(file)) {
+			LogUtil.logLifeCycle(getLogger(), "未发现driver目录,从classpath复制:" + driverFrom);
 			Files.createDirectories(file);
 			FileResourcesUtils.copy(getLogger(), Constants.CONFIG_FOLDER + "-driver", driverFrom);
 		}
-		file = Paths.get(configFrom);
-		if(!Files.exists(file)){
-			LogUtil.logLifeCycle(getLogger(),"未配置Config目录,从classpath复制");
-			Files.createDirectories(file);
-			FileResourcesUtils.copy(getLogger(), Constants.CONFIG_FOLDER+"-"+TYPE, configFrom);
-		}else{
-			file = Paths.get(defaultConfigFrom);
-			if(Files.exists(file)) {
-				LogUtil.logLifeCycle(getLogger(), "有配置Config目录,从Config目录复制:" + configFrom);
-				Files.walkFileTree(file, new SimpleFileVisitor<>() {
-					@Override
-					public FileVisitResult visitFile(Path file, BasicFileAttributes attrs) throws IOException {
-						Files.copy(
-								file,
-								Paths.get(configFrom, file.getFileName().toString()),
-								StandardCopyOption.REPLACE_EXISTING
-						);
-						return super.visitFile(file, attrs);
-					}
-				});
+		file = Paths.get(defaultConfigFrom);
+		if (Files.exists(file)) {
+			LogUtil.logLifeCycle(getLogger(), "有配置Config目录,从Config目录复制:" + configFrom);
+			Files.walkFileTree(file, new SimpleFileVisitor<>() {
+				@Override
+				public FileVisitResult visitFile(Path file, BasicFileAttributes attrs) throws IOException {
+					Files.copy(
+							file,
+							Paths.get(configFrom, file.getFileName().toString()),
+							StandardCopyOption.REPLACE_EXISTING
+					);
+					return super.visitFile(file, attrs);
+				}
+			});
+		} else {
+			file = Paths.get(configFrom);
+			if (!Files.exists(file)) {
+				LogUtil.logLifeCycle(getLogger(), "未配置Config目录,从classpath复制");
+				Files.createDirectories(file);
+				FileResourcesUtils.copy(getLogger(), Constants.CONFIG_FOLDER + "-" + TYPE, configFrom);
 			}
 		}
 	}
