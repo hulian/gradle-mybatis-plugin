@@ -5,7 +5,6 @@ import org.gradle.api.tasks.TaskAction;
 import pub.techfun.mybatis.def.MybatisGenerator;
 import pub.techfun.mybatis.def.config.DdlConfig;
 import pub.techfun.mybatis.plugin.common.constants.Constants;
-import pub.techfun.mybatis.plugin.common.task.CopyConfigFileTask;
 import pub.techfun.mybatis.plugin.common.task.CreateConfigFileTask;
 import pub.techfun.mybatis.plugin.common.util.LogUtil;
 

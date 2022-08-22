@@ -19,10 +19,12 @@ public class CreateConfigFileTask extends DefaultTask {
 	public static String TYPE;
 	private final String configFrom;
 	private final String driverFrom;
+	private final String defaultConfigFrom;
 
 	public CreateConfigFileTask(){
 		driverFrom = getProject().getBuildDir().getPath() +"/"+ Constants.DRIVER_FOLDER;
 		configFrom = getProject().getBuildDir().getPath() +"/"+ Constants.CONFIG_FOLDER;
+		defaultConfigFrom = getProject().getProjectDir().getPath() +"/"+ Constants.CONFIG_FOLDER;
 		setGroup(Constants.GROUP_NAME);
 	}
 
@@ -40,18 +42,21 @@ public class CreateConfigFileTask extends DefaultTask {
 			Files.createDirectories(file);
 			FileResourcesUtils.copy(getLogger(), Constants.CONFIG_FOLDER+"-"+TYPE, configFrom);
 		}else{
-			LogUtil.logLifeCycle(getLogger(),"有配置Config目录,从Config目录:"+configFrom);
-			Files.walkFileTree(file,new SimpleFileVisitor<>(){
-				@Override
-				public FileVisitResult visitFile(Path file, BasicFileAttributes attrs) throws IOException {
-					Files.copy(
-							file,
-							Paths.get(configFrom , file.getFileName().toString()),
-							StandardCopyOption.REPLACE_EXISTING
-					);
-					return super.visitFile(file, attrs);
-				}
-			});
+			file = Paths.get(defaultConfigFrom);
+			if(Files.exists(file)) {
+				LogUtil.logLifeCycle(getLogger(), "有配置Config目录,从Config目录:" + configFrom);
+				Files.walkFileTree(file, new SimpleFileVisitor<>() {
+					@Override
+					public FileVisitResult visitFile(Path file, BasicFileAttributes attrs) throws IOException {
+						Files.copy(
+								file,
+								Paths.get(configFrom, file.getFileName().toString()),
+								StandardCopyOption.REPLACE_EXISTING
+						);
+						return super.visitFile(file, attrs);
+					}
+				});
+			}
 		}
 	}
 }

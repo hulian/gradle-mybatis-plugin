@@ -21,7 +21,6 @@ public class CreateDefaultConfigTask extends DefaultTask {
 
 	public CreateDefaultConfigTask(){
 		configFrom = getProject().getProjectDir().getPath() +"/"+ Constants.CONFIG_FOLDER;
-		dependsOn(getProject().getTasks().getByName(CreateConfigFolderTask.TASK_NAME));
 		setGroup(Constants.GROUP_NAME);
 	}
 
