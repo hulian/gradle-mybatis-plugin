@@ -23,13 +23,13 @@
 
     <javaModelGenerator
         targetPackage="test.entity"
-        targetProject="/media/henry/DOC/opensource/gradle-mybatis-plugin/example/default-example"
+        targetProject="${projectDir}/src/main/java"
     />
 
     <javaClientGenerator
         type="XMLMAPPER"
         targetPackage="test.mapper"
-        targetProject="/media/henry/DOC/opensource/gradle-mybatis-plugin/example/default-example"
+        targetProject="${projectDir}/src/main/java"
     />
 
     <table tableName="%%">
