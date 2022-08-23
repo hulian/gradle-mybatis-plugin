@@ -2,7 +2,7 @@
 <!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
 <generatorConfiguration>
   <!-- 驱动路径-->
-  <classPathEntry location="/media/henry/DOC/opensource/gradle-mybatis-plugin/example/default-example/generator/mysql-connector-java-8.0.22.jar" />
+  <classPathEntry location="${projectDir}/build/driver/mysql-connector-java-8.0.22.jar" />
   <context id="context">
     <!-- 是否生成Lombok注解-->
     <plugin type="pub.techfun.mybatis.def.plugin.LombokPlugin"/>

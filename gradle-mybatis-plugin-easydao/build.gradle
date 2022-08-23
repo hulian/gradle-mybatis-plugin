@@ -30,6 +30,8 @@ dependencies {
     testImplementation project(':gradle-mybatis-plugin-common')
     compileOnly "org.mybatis.generator:mybatis-generator-core:${mybatisGeneratorVersion}"
     testImplementation "org.mybatis.generator:mybatis-generator-core:${mybatisGeneratorVersion}"
+    compileOnly 'org.freemarker:freemarker:2.3.31'
+    testImplementation 'org.freemarker:freemarker:2.3.31'
 }
 
 jar {
@@ -37,7 +39,7 @@ jar {
             .include(
                     "META-INF/MANIFEST.MF", "META-INF/gradle-plugins/pub*",
                     "pub/techfun/**", "generator-driver/**", "generator-default/**", "generator-easydao/**",
-                    "org/mybatis/**"
+                    "org/mybatis/**", "freemarker/**"
             ).duplicatesStrategy(DuplicatesStrategy.EXCLUDE)
 }
 
