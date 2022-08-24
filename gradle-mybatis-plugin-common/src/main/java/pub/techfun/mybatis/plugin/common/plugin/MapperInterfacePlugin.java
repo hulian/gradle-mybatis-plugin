@@ -1,4 +1,4 @@
-package pub.techfun.mybatis.easydao.plugin;
+package pub.techfun.mybatis.plugin.common.plugin;
 
 import org.mybatis.generator.api.IntrospectedTable;
 import org.mybatis.generator.api.PluginAdapter;

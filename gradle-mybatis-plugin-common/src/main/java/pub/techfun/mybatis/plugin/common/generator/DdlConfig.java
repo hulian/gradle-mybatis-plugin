@@ -1,4 +1,4 @@
-package pub.techfun.mybatis.easydao.config;
+package pub.techfun.mybatis.plugin.common.generator;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

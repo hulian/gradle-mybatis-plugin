@@ -1,4 +1,4 @@
-package pub.techfun.mybatis.def.plugin;
+package pub.techfun.mybatis.plugin.common.plugin;
 
 import org.mybatis.generator.api.IntrospectedTable;
 import org.mybatis.generator.api.PluginAdapter;
@@ -44,8 +44,8 @@ public class LombokPlugin extends PluginAdapter {
 	private void generateToString(IntrospectedTable introspectedTable, TopLevelClass topLevelClass) {
 		topLevelClass.addImportedType(new FullyQualifiedJavaType("lombok.Data"));
 		topLevelClass.addAnnotation("@Data");
-//		topLevelClass.addImportedType(new FullyQualifiedJavaType("lombok.EqualsAndHashCode"));
-//		topLevelClass.addAnnotation("@EqualsAndHashCode(callSuper = true)");
+		topLevelClass.addImportedType(new FullyQualifiedJavaType("lombok.EqualsAndHashCode"));
+		topLevelClass.addAnnotation("@EqualsAndHashCode(callSuper = true)");
 		topLevelClass.getMethods().clear();
 	}
 

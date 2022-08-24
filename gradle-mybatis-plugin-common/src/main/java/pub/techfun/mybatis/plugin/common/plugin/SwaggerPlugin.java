@@ -1,4 +1,4 @@
-package pub.techfun.mybatis.def.plugin;
+package pub.techfun.mybatis.plugin.common.plugin;
 
 import org.mybatis.generator.api.IntrospectedColumn;
 import org.mybatis.generator.api.IntrospectedTable;

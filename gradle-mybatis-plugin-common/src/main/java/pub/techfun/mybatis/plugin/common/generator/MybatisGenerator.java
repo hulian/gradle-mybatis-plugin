@@ -1,10 +1,9 @@
-package pub.techfun.mybatis.def;
+package pub.techfun.mybatis.plugin.common.generator;
 
 import org.mybatis.generator.api.MyBatisGenerator;
 import org.mybatis.generator.config.Configuration;
 import org.mybatis.generator.config.xml.ConfigurationParser;
 import org.mybatis.generator.internal.DefaultShellCallback;
-import pub.techfun.mybatis.def.config.DdlConfig;
 
 import java.io.File;
 import java.util.ArrayList;
