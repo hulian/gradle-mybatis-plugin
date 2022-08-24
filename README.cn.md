@@ -1,26 +1,26 @@
 # gradle-mybatis-plugin
 
 #### Description
-Gradle plugin for mybatis to auto generate Entity Mppper classes
+通过Gradle插件自动生成Mybatis实体类和Mapper
 
 #### Installation
 
-1. add plugin to build.gradle
+1. 在build.gradle中添加插件
 ```
-//use default version
+//使用默认版本
 plugins {
-    id "pub.techfun.mybatis.plugin.default" version "0.0.2"
+    id "pub.techfun.mybatis.plugin.default" version "0.0.6"
 }
 ```
 ```
-//use easydao lib specific version
+//使用easydao库定制版本
 plugins {
-    id "pub.techfun.mybatis.plugin.easydao" version "0.0.2"
+    id "pub.techfun.mybatis.plugin.easydao" version "0.0.6"
 }
 ```
 
 #### Instructions
 
-1. create default configuration file:  ./gradlew module:createConfigFile
-2. modify configuration file in the folder 'generator'
-3. generate classes: ./gradlew module:generateFile
+1. 创建默认配置文件:  ./gradlew module:createConfigFile
+2. 修改配置文件，生成的默认配置文件会在项目根目录下的generator文件夹
+3. 生成类: ./gradlew module:generateFile
