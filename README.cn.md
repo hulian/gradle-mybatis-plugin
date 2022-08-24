@@ -21,6 +21,6 @@ plugins {
 
 #### Instructions
 
-1. 创建默认配置文件:  ./gradlew module:createConfigFile
+1. 创建默认配置文件:  ./gradlew module:createDefaultConfig
 2. 修改配置文件，生成的默认配置文件会在项目根目录下的generator文件夹
 3. 生成类: ./gradlew module:generateFile
