@@ -1,6 +1,6 @@
 apply plugin: 'java-library'
 
 dependencies {
-    compileOnly 'org.freemarker:freemarker:2.3.31'
-    testImplementation 'org.freemarker:freemarker:2.3.31'
+    api "org.mybatis.generator:mybatis-generator-core:${mybatisGeneratorVersion}"
+    api "org.freemarker:freemarker:${freemarkerVersion}"
 }

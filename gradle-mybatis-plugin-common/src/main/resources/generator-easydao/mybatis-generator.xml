@@ -5,17 +5,17 @@
   <classPathEntry location="${projectDir}/build/driver/mysql-connector-java-8.0.22.jar" />
   <context id="context">
     <!-- 是否生成Lombok注解-->
-    <plugin type="pub.techfun.mybatis.easydao.plugin.LombokPlugin"/>
+    <plugin type="pub.techfun.mybatis.plugin.common.plugin.LombokPlugin"/>
     <!-- 是否生成Swagger3注解-->
-    <plugin type="pub.techfun.mybatis.easydao.plugin.SwaggerPlugin"/>
+    <plugin type="pub.techfun.mybatis.plugin.common.plugin.Swagger3Plugin"/>
     <!-- 是否让实体类继承指定类-->
-    <plugin type="pub.techfun.mybatis.easydao.plugin.BaseEntityPlugin">
+    <plugin type="pub.techfun.mybatis.plugin.common.plugin.BaseEntityPlugin">
         <property name="entitySuperClass" value="pub.techfun.easydao.core.entity.BaseEntity"/>
     </plugin>
     <!-- 是否让Mapper继承预先设定的类-->
-    <plugin type="pub.techfun.mybatis.easydao.plugin.MapperInterfacePlugin"/>
+    <plugin type="pub.techfun.mybatis.plugin.common.plugin.MapperInterfacePlugin"/>
     <!-- 去除自动生成的注解 -->
-    <commentGenerator type="pub.techfun.mybatis.easydao.plugin.EmptyCommentGenerator"/>
+    <commentGenerator type="pub.techfun.mybatis.plugin.common.plugin.EmptyCommentGenerator"/>
 
     <jdbcConnection
         connectionURL="jdbc:mysql://localhost:3306/ds?serverTimezone=GMT%2B8"
@@ -29,13 +29,13 @@
 
     <javaModelGenerator
         targetPackage="test.entity"
-        targetProject="${projectDir}/src/main/java"
+        targetProject="${projectDir}"
     />
 
     <javaClientGenerator
         type="XMLMAPPER"
         targetPackage="test.mapper"
-        targetProject="${projectDir}/src/main/java"
+        targetProject="${projectDir}"
     />
 
     <table tableName="%%">

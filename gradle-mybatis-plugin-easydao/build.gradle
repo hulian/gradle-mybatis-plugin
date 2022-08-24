@@ -14,7 +14,7 @@ gradlePlugin {
         easydaoPlugin {
             displayName = 'gradle-mybatis-plugin-easydao'
             id = 'pub.techfun.mybatis.plugin.easydao'
-            implementationClass = 'pub.techfun.mybatis.easydao.MybatisPluginEasydao'
+            implementationClass = 'pub.techfun.mybatis.plugin.easydao.MybatisPluginEasydao'
         }
     }
 }
@@ -30,8 +30,8 @@ dependencies {
     testImplementation project(':gradle-mybatis-plugin-common')
     compileOnly "org.mybatis.generator:mybatis-generator-core:${mybatisGeneratorVersion}"
     testImplementation "org.mybatis.generator:mybatis-generator-core:${mybatisGeneratorVersion}"
-    compileOnly 'org.freemarker:freemarker:2.3.31'
-    testImplementation 'org.freemarker:freemarker:2.3.31'
+    compileOnly "org.freemarker:freemarker:${freemarkerVersion}"
+    testImplementation "org.freemarker:freemarker:${freemarkerVersion}"
 }
 
 jar {

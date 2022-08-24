@@ -31,20 +31,22 @@ public class GenerateFileTask extends DefaultTask {
 
     @TaskAction
     public void execute() throws IOException, TemplateException {
-        // 生成freemark模版
+        // 生成freemarker模版
         var configFolder = Path.of(getProject().getBuildDir().getPath() , Constants.CONFIG_FOLDER );
         Configuration cfg = new Configuration(Configuration.VERSION_2_3_22);
-        cfg.setDirectoryForTemplateLoading(configFolder.getFileName().toFile());
+        cfg.setDirectoryForTemplateLoading(configFolder.toFile());
         cfg.setDefaultEncoding(StandardCharsets.UTF_8.name());
         cfg.setTemplateExceptionHandler(TemplateExceptionHandler.RETHROW_HANDLER);
         Map<String, String> root = new HashMap<>();
         root.put("projectDir", getProject().getProjectDir().getAbsolutePath());
+        // 通过模版生成配置文件
         var configFile = Path.of(getProject().getBuildDir().getPath()
                 ,Constants.CONFIG_FOLDER ,Constants.CONFIG_FILE+"_auto");
         Template temp = cfg.getTemplate(Constants.CONFIG_FILE);
         Writer out = new OutputStreamWriter(new FileOutputStream(configFile.toFile()));
         temp.process(root, out);
         LogUtil.logLifeCycle(getLogger(), "生成配置文件:{}", configFile);
+        // 生成Mybatis类
         new MybatisGenerator(new DdlConfig(true, true))
                 .run(configFile.toString());
     }

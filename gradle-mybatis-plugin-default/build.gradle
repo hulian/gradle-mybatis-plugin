@@ -14,7 +14,7 @@ gradlePlugin {
         easydaoPlugin {
             displayName = 'gradle-mybatis-plugin-default'
             id = 'pub.techfun.mybatis.plugin.default'
-            implementationClass = 'pub.techfun.mybatis.def.MybatisPluginDefault'
+            implementationClass = 'pub.techfun.mybatis.plugin.defaults.MybatisPluginDefault'
         }
     }
 }
@@ -30,6 +30,8 @@ dependencies {
     testImplementation project(':gradle-mybatis-plugin-common')
     compileOnly "org.mybatis.generator:mybatis-generator-core:${mybatisGeneratorVersion}"
     testImplementation "org.mybatis.generator:mybatis-generator-core:${mybatisGeneratorVersion}"
+    compileOnly "org.freemarker:freemarker:${freemarkerVersion}"
+    testImplementation "org.freemarker:freemarker:${freemarkerVersion}"
 }
 
 jar {

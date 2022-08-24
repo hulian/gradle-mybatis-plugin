@@ -13,7 +13,7 @@ import java.util.Properties;
 /**
  * @author henry
  */
-public class SwaggerPlugin extends PluginAdapter {
+public class Swagger3Plugin extends PluginAdapter {
 
 	@Override
 	public void setProperties(Properties properties) {
