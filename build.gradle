@@ -18,7 +18,7 @@ subprojects {
 
     // 版本控制
     def SNAPSHOT = true
-    def VERSION = '0.0.3'
+    def VERSION = '0.0.4'
     group = 'pub.techfun'
     if(SNAPSHOT) {
         version = "${VERSION}-SNAPSHOT"
@@ -51,12 +51,12 @@ subprojects {
     }
 
     task javadocJar(type: Jar) {
-        archiveClassifier = 'javadoc'
+        classifier('javadoc')
         from javadoc
     }
 
     task sourcesJar(type: Jar) {
-        archiveClassifier = 'sources'
+        classifier('sources')
         from sourceSets.main.allSource
     }
 
